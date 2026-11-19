@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>テスト｜競馬予想</title>
+<link rel="stylesheet" href="./css/style.css">
+<style>
+  .res { font-size: 20px; font-weight: 700; margin: 8px 0; }
+  .pass { color: #1f6f43; } .fail { color: #b42318; }
+  #log li { font-size: 14px; overflow-wrap: anywhere; }
+  #sandbox { border: 1px dashed #999; margin-top: 16px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>アプリのテスト</h1>
+  <p id="summary" class="res">実行中…</p>
+  <ul id="log"></ul>
+  <div id="sandbox"><div id="main"></div></div>
+</main>
+<script type="module" src="./js/tests.js"></script>
+</body>
+</html>

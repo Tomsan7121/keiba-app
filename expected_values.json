@@ -1,0 +1,1291 @@
+{
+ "meta": {
+  "made_by": "分析担当（1周目） docs/expected_values.py",
+  "tolerance_abs": 1e-09,
+  "note": "None は「欠け（値なし）」。E は縮小つき上振れ量。窓は「対象日−W日 ≤ 日付 < 対象日」。",
+  "params": {
+   "K_HORSE": 3,
+   "K_JOCKEY": 30,
+   "K_SIRE": 50,
+   "W_JOCKEY_ALL": 365,
+   "W_JOCKEY_COURSE": 730,
+   "W_SIRE": 1095,
+   "DIST_BAND": 200
+  },
+  "half_rounding_check": "OK（6桁目で .5 になる値なし）"
+ },
+ "fixture": {
+  "target": {
+   "race_id": "202506150511",
+   "race_date": "2025-06-15",
+   "venue_code": "05",
+   "surface": "芝",
+   "distance_m": 1600,
+   "turn": "左",
+   "n_declared": 8
+  },
+  "entries": [
+   {
+    "race_id": "202506150511",
+    "horse_id": "2020100001",
+    "umaban": 3,
+    "jockey_id": "J1",
+    "carried_kg": 57.0
+   },
+   {
+    "race_id": "202506150511",
+    "horse_id": "2021100002",
+    "umaban": 5,
+    "jockey_id": "J2",
+    "carried_kg": 56.0
+   },
+   {
+    "race_id": "202506150511",
+    "horse_id": "2022100003",
+    "umaban": 7,
+    "jockey_id": "J3",
+    "carried_kg": 55.0
+   }
+  ],
+  "horses": {
+   "2020100001": {
+    "name": "テストアルファ",
+    "sire": "S1",
+    "bms": "M1"
+   },
+   "2021100002": {
+    "name": "テストブラボー",
+    "sire": "S1",
+    "bms": "M2"
+   },
+   "2022100003": {
+    "name": "テストチャーリー",
+    "sire": "S2",
+    "bms": "M1"
+   },
+   "2019100004": {
+    "name": "テストデルタ",
+    "sire": "S1",
+    "bms": "M3"
+   },
+   "2020100005": {
+    "name": "テストエコー",
+    "sire": "S2",
+    "bms": "M2"
+   }
+  },
+  "results": [
+   {
+    "race_id": "202403170711",
+    "race_date": "2024-03-17",
+    "venue_code": "07",
+    "surface": "芝",
+    "distance_m": 1600,
+    "turn": "左",
+    "going": "良",
+    "n_starters": 16,
+    "horse_id": "2020100001",
+    "status": "完走",
+    "finish_pos": 9,
+    "time_sec": 95.1,
+    "winner_time_sec": 94.2,
+    "jockey_id": "J2",
+    "body_weight_kg": 476,
+    "carried_kg": 56.0,
+    "corner1_pos": 10
+   },
+   {
+    "race_id": "202405050511",
+    "race_date": "2024-05-05",
+    "venue_code": "05",
+    "surface": "芝",
+    "distance_m": 1600,
+    "turn": "左",
+    "going": "良",
+    "n_starters": 16,
+    "horse_id": "2020100001",
+    "status": "完走",
+    "finish_pos": 2,
+    "time_sec": 93.4,
+    "winner_time_sec": 93.3,
+    "jockey_id": "J1",
+    "body_weight_kg": 480,
+    "carried_kg": 57.0,
+    "corner1_pos": 5
+   },
+   {
+    "race_id": "202406090511",
+    "race_date": "2024-06-09",
+    "venue_code": "05",
+    "surface": "芝",
+    "distance_m": 1800,
+    "turn": "左",
+    "going": "稍",
+    "n_starters": 14,
+    "horse_id": "2020100001",
+    "status": "完走",
+    "finish_pos": 1,
+    "time_sec": 106.8,
+    "winner_time_sec": 106.8,
+    "jockey_id": "J1",
+    "body_weight_kg": 484,
+    "carried_kg": 57.0,
+    "corner1_pos": 3
+   },
+   {
+    "race_id": "202410130811",
+    "race_date": "2024-10-13",
+    "venue_code": "08",
+    "surface": "芝",
+    "distance_m": 1600,
+    "turn": "右",
+    "going": "良",
+    "n_starters": 18,
+    "horse_id": "2020100001",
+    "status": "完走",
+    "finish_pos": 7,
+    "time_sec": 94.1,
+    "winner_time_sec": 93.5,
+    "jockey_id": "J2",
+    "body_weight_kg": 490,
+    "carried_kg": 57.0,
+    "corner1_pos": 9
+   },
+   {
+    "race_id": "202411240811",
+    "race_date": "2024-11-24",
+    "venue_code": "08",
+    "surface": "芝",
+    "distance_m": 1600,
+    "turn": "右",
+    "going": "重",
+    "n_starters": 12,
+    "horse_id": "2020100001",
+    "status": "完走",
+    "finish_pos": 4,
+    "time_sec": 97.0,
+    "winner_time_sec": 96.6,
+    "jockey_id": "J1",
+    "body_weight_kg": 488,
+    "carried_kg": 57.0,
+    "corner1_pos": 6
+   },
+   {
+    "race_id": "202501260611",
+    "race_date": "2025-01-26",
+    "venue_code": "06",
+    "surface": "芝",
+    "distance_m": 1600,
+    "turn": "右",
+    "going": "良",
+    "n_starters": 16,
+    "horse_id": "2020100001",
+    "status": "取消",
+    "finish_pos": null,
+    "time_sec": null,
+    "winner_time_sec": 95.0,
+    "jockey_id": "J1",
+    "body_weight_kg": null,
+    "carried_kg": 57.0,
+    "corner1_pos": null
+   },
+   {
+    "race_id": "202502160511",
+    "race_date": "2025-02-16",
+    "venue_code": "05",
+    "surface": "芝",
+    "distance_m": 1600,
+    "turn": "左",
+    "going": "不",
+    "n_starters": 10,
+    "horse_id": "2020100001",
+    "status": "完走",
+    "finish_pos": 3,
+    "time_sec": 97.9,
+    "winner_time_sec": 97.5,
+    "jockey_id": "J1",
+    "body_weight_kg": 486,
+    "carried_kg": 58.0,
+    "corner1_pos": 4
+   },
+   {
+    "race_id": "202503300611",
+    "race_date": "2025-03-30",
+    "venue_code": "06",
+    "surface": "芝",
+    "distance_m": 2000,
+    "turn": "右",
+    "going": "良",
+    "n_starters": 15,
+    "horse_id": "2020100001",
+    "status": "完走",
+    "finish_pos": 5,
+    "time_sec": 120.6,
+    "winner_time_sec": 120.1,
+    "jockey_id": "J3",
+    "body_weight_kg": 492,
+    "carried_kg": 57.0,
+    "corner1_pos": 8
+   },
+   {
+    "race_id": "202504270510",
+    "race_date": "2025-04-27",
+    "venue_code": "05",
+    "surface": "芝",
+    "distance_m": 2400,
+    "turn": "左",
+    "going": "良",
+    "n_starters": 9,
+    "horse_id": "2020100001",
+    "status": "中止",
+    "finish_pos": null,
+    "time_sec": null,
+    "winner_time_sec": 144.0,
+    "jockey_id": "J1",
+    "body_weight_kg": 490,
+    "carried_kg": 57.0,
+    "corner1_pos": 2
+   },
+   {
+    "race_id": "202505180511",
+    "race_date": "2025-05-18",
+    "venue_code": "05",
+    "surface": "芝",
+    "distance_m": 1600,
+    "turn": "左",
+    "going": "稍",
+    "n_starters": 13,
+    "horse_id": "2020100001",
+    "status": "完走",
+    "finish_pos": 1,
+    "time_sec": 93.9,
+    "winner_time_sec": 93.9,
+    "jockey_id": "J1",
+    "body_weight_kg": 488,
+    "carried_kg": 57.0,
+    "corner1_pos": 2
+   },
+   {
+    "race_id": "202506290511",
+    "race_date": "2025-06-29",
+    "venue_code": "05",
+    "surface": "芝",
+    "distance_m": 1600,
+    "turn": "左",
+    "going": "良",
+    "n_starters": 16,
+    "horse_id": "2020100001",
+    "status": "完走",
+    "finish_pos": 2,
+    "time_sec": 93.7,
+    "winner_time_sec": 93.6,
+    "jockey_id": "J1",
+    "body_weight_kg": 490,
+    "carried_kg": 57.0,
+    "corner1_pos": 3
+   },
+   {
+    "race_id": "202504200505",
+    "race_date": "2025-04-20",
+    "venue_code": "05",
+    "surface": "芝",
+    "distance_m": 1600,
+    "turn": "左",
+    "going": "良",
+    "n_starters": 7,
+    "horse_id": "2021100002",
+    "status": "完走",
+    "finish_pos": 2,
+    "time_sec": 95.0,
+    "winner_time_sec": 94.8,
+    "jockey_id": "J2",
+    "body_weight_kg": 450,
+    "carried_kg": 55.0,
+    "corner1_pos": 1
+   },
+   {
+    "race_id": "202505250507",
+    "race_date": "2025-05-25",
+    "venue_code": "05",
+    "surface": "ダ",
+    "distance_m": 1600,
+    "turn": "左",
+    "going": "良",
+    "n_starters": 16,
+    "horse_id": "2021100002",
+    "status": "完走",
+    "finish_pos": 9,
+    "time_sec": 98.5,
+    "winner_time_sec": 97.2,
+    "jockey_id": "J2",
+    "body_weight_kg": 446,
+    "carried_kg": 56.0,
+    "corner1_pos": 3
+   },
+   {
+    "race_id": "202205010511",
+    "race_date": "2022-05-01",
+    "venue_code": "05",
+    "surface": "芝",
+    "distance_m": 1600,
+    "turn": "左",
+    "going": "良",
+    "n_starters": 16,
+    "horse_id": "2019100004",
+    "status": "完走",
+    "finish_pos": 1,
+    "time_sec": 93.2,
+    "winner_time_sec": 93.2,
+    "jockey_id": "J1",
+    "body_weight_kg": 500,
+    "carried_kg": 57.0,
+    "corner1_pos": 4
+   },
+   {
+    "race_id": "202406150509",
+    "race_date": "2024-06-15",
+    "venue_code": "05",
+    "surface": "芝",
+    "distance_m": 1600,
+    "turn": "左",
+    "going": "良",
+    "n_starters": 16,
+    "horse_id": "2019100004",
+    "status": "完走",
+    "finish_pos": 4,
+    "time_sec": 94.0,
+    "winner_time_sec": 93.6,
+    "jockey_id": "J1",
+    "body_weight_kg": 498,
+    "carried_kg": 57.0,
+    "corner1_pos": 7
+   },
+   {
+    "race_id": "202407070311",
+    "race_date": "2024-07-07",
+    "venue_code": "03",
+    "surface": "芝",
+    "distance_m": 1800,
+    "turn": "右",
+    "going": "良",
+    "n_starters": 16,
+    "horse_id": "2019100004",
+    "status": "完走",
+    "finish_pos": 3,
+    "time_sec": 108.9,
+    "winner_time_sec": 108.5,
+    "jockey_id": "J2",
+    "body_weight_kg": 502,
+    "carried_kg": 57.0,
+    "corner1_pos": 5
+   },
+   {
+    "race_id": "202506010511",
+    "race_date": "2025-06-01",
+    "venue_code": "05",
+    "surface": "芝",
+    "distance_m": 1600,
+    "turn": "左",
+    "going": "良",
+    "n_starters": 18,
+    "horse_id": "2019100004",
+    "status": "完走",
+    "finish_pos": 11,
+    "time_sec": 94.5,
+    "winner_time_sec": 93.8,
+    "jockey_id": "J3",
+    "body_weight_kg": 496,
+    "carried_kg": 57.0,
+    "corner1_pos": 12
+   },
+   {
+    "race_id": "202406160511",
+    "race_date": "2024-06-16",
+    "venue_code": "05",
+    "surface": "芝",
+    "distance_m": 1600,
+    "turn": "左",
+    "going": "良",
+    "n_starters": 14,
+    "horse_id": "2020100005",
+    "status": "完走",
+    "finish_pos": 2,
+    "time_sec": 93.8,
+    "winner_time_sec": 93.7,
+    "jockey_id": "J1",
+    "body_weight_kg": 470,
+    "carried_kg": 56.0,
+    "corner1_pos": 2
+   },
+   {
+    "race_id": "202506080509",
+    "race_date": "2025-06-08",
+    "venue_code": "05",
+    "surface": "芝",
+    "distance_m": 1400,
+    "turn": "左",
+    "going": "良",
+    "n_starters": 12,
+    "horse_id": "2020100005",
+    "status": "完走",
+    "finish_pos": 6,
+    "time_sec": 82.3,
+    "winner_time_sec": 81.9,
+    "jockey_id": "J3",
+    "body_weight_kg": 468,
+    "carried_kg": 56.0,
+    "corner1_pos": 6
+   },
+   {
+    "race_id": "202506150503",
+    "race_date": "2025-06-15",
+    "venue_code": "05",
+    "surface": "芝",
+    "distance_m": 1600,
+    "turn": "左",
+    "going": "良",
+    "n_starters": 16,
+    "horse_id": "2020100005",
+    "status": "完走",
+    "finish_pos": 1,
+    "time_sec": 94.2,
+    "winner_time_sec": 94.2,
+    "jockey_id": "J1",
+    "body_weight_kg": 466,
+    "carried_kg": 56.0,
+    "corner1_pos": 1
+   }
+  ]
+ },
+ "features": {
+  "2020100001": {
+   "f01_surface": {
+    "n": 9,
+    "hits": 4,
+    "E": 0.16082875457875456
+   },
+   "f01_going_sens": 0.2957957221350079,
+   "f02_venue_dist": {
+    "n": 4,
+    "hits": 4,
+    "E": 0.43820643642072216,
+    "rf_shrunk": 0.25555555555555554
+   },
+   "f03_sire_course": {
+    "n": 7,
+    "hits": 5,
+    "E": 0.06013270355375618
+   },
+   "f03_sire_dourou": {
+    "n": 4,
+    "hits": 3,
+    "E": 0.037128612128612126
+   },
+   "f03_bms_dist": {
+    "n": 7,
+    "hits": 4,
+    "E": 0.04321541032067347
+   },
+   "f04_venue": {
+    "n": 5,
+    "hits": 4,
+    "E": 0.3417639652014652
+   },
+   "f05_surface_dist": {
+    "n": 7,
+    "hits": 4,
+    "E": 0.2463278388278388
+   },
+   "f05_surface_turn": {
+    "n": 6,
+    "hits": 4,
+    "E": 0.28295685795685793
+   },
+   "f05_dist_change_m": 0,
+   "f06_venue_ryo": {
+    "n": 2,
+    "hits": 1,
+    "E": 0.09583333333333334
+   },
+   "f06_venue_dourou": {
+    "n": 3,
+    "hits": 3,
+    "E": 0.3758241758241758
+   },
+   "f07_horse_jockey": {
+    "n": 6,
+    "hits": 4,
+    "E": 0.2760124135124135
+   },
+   "f07_jockey_change": 0,
+   "f08_jockey_course": {
+    "n": 6,
+    "hits": 5,
+    "E": 0.10182387057387057
+   },
+   "f09_jockey_all": {
+    "n": 6,
+    "hits": 3,
+    "E": 0.041225325600325595,
+    "win_rate": 0.16666666666666666
+   },
+   "f10_recent7": {
+    "n": 7,
+    "hits": 3,
+    "rf_wmean": 0.351483017449404,
+    "tb_mean_last3": 1.1666666666666667,
+    "last_rf": 0.0
+   },
+   "f11_weight": {
+    "n": 7,
+    "last_bw": 488.0,
+    "last_diff": -2.0,
+    "slope_per_run": 0.5714285714285714,
+    "std": 2.4907993963089563,
+    "vs_good_mean": 2.0
+   },
+   "x_days_since": 28,
+   "x_carried_diff": 0.0,
+   "x_early_pos": 0.36052677481248907,
+   "_src_max_date": "2025-06-08"
+  },
+  "2021100002": {
+   "f01_surface": {
+    "n": 1,
+    "hits": 1,
+    "E": 0.17857142857142858
+   },
+   "f01_going_sens": -0.17857142857142858,
+   "f02_venue_dist": {
+    "n": 1,
+    "hits": 1,
+    "E": 0.17857142857142858,
+    "rf_shrunk": 0.4166666666666667
+   },
+   "f03_sire_course": {
+    "n": 7,
+    "hits": 5,
+    "E": 0.06013270355375618
+   },
+   "f03_sire_dourou": {
+    "n": 4,
+    "hits": 3,
+    "E": 0.037128612128612126
+   },
+   "f03_bms_dist": {
+    "n": 3,
+    "hits": 2,
+    "E": 0.02358490566037736
+   },
+   "f04_venue": {
+    "n": 1,
+    "hits": 1,
+    "E": 0.17857142857142858
+   },
+   "f05_surface_dist": {
+    "n": 1,
+    "hits": 1,
+    "E": 0.17857142857142858
+   },
+   "f05_surface_turn": {
+    "n": 1,
+    "hits": 1,
+    "E": 0.17857142857142858
+   },
+   "f05_dist_change_m": 0,
+   "f06_venue_ryo": {
+    "n": 1,
+    "hits": 1,
+    "E": 0.17857142857142858
+   },
+   "f06_venue_dourou": {
+    "n": 0,
+    "hits": 0,
+    "E": 0.0
+   },
+   "f07_horse_jockey": {
+    "n": 2,
+    "hits": 1,
+    "E": 0.10535714285714286
+   },
+   "f07_jockey_change": 0,
+   "f08_jockey_course": {
+    "n": 1,
+    "hits": 1,
+    "E": 0.02304147465437788
+   },
+   "f09_jockey_all": {
+    "n": 4,
+    "hits": 2,
+    "E": 0.034488795518207285,
+    "win_rate": 0.0
+   },
+   "f10_recent7": {
+    "n": 2,
+    "hits": 1,
+    "rf_wmean": 0.3641025641025641,
+    "tb_mean_last3": 0.75,
+    "last_rf": 0.5333333333333333
+   },
+   "f11_weight": {
+    "n": 2,
+    "last_bw": 446.0,
+    "last_diff": -4.0,
+    "slope_per_run": null,
+    "std": 2.0,
+    "vs_good_mean": -4.0
+   },
+   "x_days_since": 21,
+   "x_carried_diff": 0.0,
+   "x_early_pos": 0.16517857142857142,
+   "_src_max_date": "2025-06-08"
+  },
+  "2022100003": {
+   "f01_surface": {
+    "n": 0,
+    "hits": 0,
+    "E": 0.0
+   },
+   "f01_going_sens": 0.0,
+   "f02_venue_dist": {
+    "n": 0,
+    "hits": 0,
+    "E": 0.0,
+    "rf_shrunk": 0.5
+   },
+   "f03_sire_course": {
+    "n": 2,
+    "hits": 1,
+    "E": 0.010302197802197802
+   },
+   "f03_sire_dourou": {
+    "n": 0,
+    "hits": 0,
+    "E": 0.0
+   },
+   "f03_bms_dist": {
+    "n": 7,
+    "hits": 4,
+    "E": 0.04321541032067347
+   },
+   "f04_venue": {
+    "n": 0,
+    "hits": 0,
+    "E": 0.0
+   },
+   "f05_surface_dist": {
+    "n": 0,
+    "hits": 0,
+    "E": 0.0
+   },
+   "f05_surface_turn": {
+    "n": 0,
+    "hits": 0,
+    "E": 0.0
+   },
+   "f05_dist_change_m": null,
+   "f06_venue_ryo": {
+    "n": 0,
+    "hits": 0,
+    "E": 0.0
+   },
+   "f06_venue_dourou": {
+    "n": 0,
+    "hits": 0,
+    "E": 0.0
+   },
+   "f07_horse_jockey": {
+    "n": 0,
+    "hits": 0,
+    "E": 0.0
+   },
+   "f07_jockey_change": null,
+   "f08_jockey_course": {
+    "n": 2,
+    "hits": 0,
+    "E": -0.013020833333333332
+   },
+   "f09_jockey_all": {
+    "n": 3,
+    "hits": 0,
+    "E": -0.01868686868686869,
+    "win_rate": 0.0
+   },
+   "f10_recent7": {
+    "n": 0,
+    "hits": 0,
+    "rf_wmean": null,
+    "tb_mean_last3": null,
+    "last_rf": null
+   },
+   "f11_weight": {
+    "n": 0,
+    "last_bw": null,
+    "last_diff": null,
+    "slope_per_run": null,
+    "std": null,
+    "vs_good_mean": null
+   },
+   "x_days_since": null,
+   "x_carried_diff": null,
+   "x_early_pos": null,
+   "_src_max_date": "2025-06-08"
+  }
+ },
+ "normalize": [
+  {
+   "raw": [
+    0.62,
+    0.48,
+    0.4,
+    0.33,
+    0.25,
+    0.18,
+    0.12,
+    0.07
+   ],
+   "n_declared": 8,
+   "shift_c": 0.3625535323213098,
+   "p": [
+    0.7010078481650729,
+    0.5701616782597208,
+    0.4892737519485203,
+    0.4144421640514355,
+    0.3238665857428378,
+    0.2397967837516395,
+    0.1638472620528293,
+    0.09760392602794413
+   ],
+   "sum": 3.0,
+   "honmei_index": 0,
+   "confidence": 0.7010078481650729
+  },
+  {
+   "raw": [
+    0.7,
+    0.45,
+    0.3,
+    0.2,
+    0.1
+   ],
+   "n_declared": 5,
+   "shift_c": 0.265713336518434,
+   "p": [
+    0.7526900653165054,
+    0.5162549300667855,
+    0.35856807629867554,
+    0.2459035253587967,
+    0.12658340295923715
+   ],
+   "sum": 2.0000000000000004
+  }
+ ],
+ "wilson": [
+  {
+   "hits": 17,
+   "n": 20,
+   "ci": [
+    0.6395811352592431,
+    0.9476312541037835
+   ]
+  },
+  {
+   "hits": 250,
+   "n": 300,
+   "ci": [
+    0.7870033503873166,
+    0.8712346687963193
+   ]
+  },
+  {
+   "hits": 80,
+   "n": 100,
+   "ci": [
+    0.7111708344068411,
+    0.8666330666689676
+   ]
+  },
+  {
+   "hits": 0,
+   "n": 5,
+   "ci": [
+    0.0,
+    0.43448246478317476
+   ]
+  },
+  {
+   "hits": 5,
+   "n": 5,
+   "ci": [
+    0.5655175352168251,
+    1.0
+   ]
+  }
+ ],
+ "threshold_selection": {
+  "races": [
+   {
+    "race": "R01",
+    "score": 0.9517,
+    "hit": 1
+   },
+   {
+    "race": "R02",
+    "score": 0.9404,
+    "hit": 1
+   },
+   {
+    "race": "R03",
+    "score": 0.9291,
+    "hit": 1
+   },
+   {
+    "race": "R04",
+    "score": 0.9178,
+    "hit": 1
+   },
+   {
+    "race": "R05",
+    "score": 0.9065,
+    "hit": 0
+   },
+   {
+    "race": "R06",
+    "score": 0.8952,
+    "hit": 1
+   },
+   {
+    "race": "R07",
+    "score": 0.8839,
+    "hit": 1
+   },
+   {
+    "race": "R08",
+    "score": 0.8726,
+    "hit": 1
+   },
+   {
+    "race": "R09",
+    "score": 0.8613,
+    "hit": 1
+   },
+   {
+    "race": "R10",
+    "score": 0.85,
+    "hit": 0
+   },
+   {
+    "race": "R11",
+    "score": 0.8387,
+    "hit": 1
+   },
+   {
+    "race": "R12",
+    "score": 0.8274,
+    "hit": 1
+   },
+   {
+    "race": "R13",
+    "score": 0.8161,
+    "hit": 1
+   },
+   {
+    "race": "R14",
+    "score": 0.8048,
+    "hit": 0
+   },
+   {
+    "race": "R15",
+    "score": 0.7935,
+    "hit": 1
+   },
+   {
+    "race": "R16",
+    "score": 0.7822,
+    "hit": 1
+   },
+   {
+    "race": "R17",
+    "score": 0.7709,
+    "hit": 0
+   },
+   {
+    "race": "R18",
+    "score": 0.7596,
+    "hit": 1
+   },
+   {
+    "race": "R19",
+    "score": 0.7483,
+    "hit": 0
+   },
+   {
+    "race": "R20",
+    "score": 0.737,
+    "hit": 1
+   },
+   {
+    "race": "R21",
+    "score": 0.7257,
+    "hit": 1
+   },
+   {
+    "race": "R22",
+    "score": 0.7144,
+    "hit": 0
+   },
+   {
+    "race": "R23",
+    "score": 0.7031,
+    "hit": 1
+   },
+   {
+    "race": "R24",
+    "score": 0.6918,
+    "hit": 0
+   },
+   {
+    "race": "R25",
+    "score": 0.6805,
+    "hit": 0
+   },
+   {
+    "race": "R26",
+    "score": 0.6692,
+    "hit": 1
+   },
+   {
+    "race": "R27",
+    "score": 0.6579,
+    "hit": 0
+   },
+   {
+    "race": "R28",
+    "score": 0.6466,
+    "hit": 1
+   },
+   {
+    "race": "R29",
+    "score": 0.6353,
+    "hit": 0
+   },
+   {
+    "race": "R30",
+    "score": 0.624,
+    "hit": 0
+   },
+   {
+    "race": "R31",
+    "score": 0.6127,
+    "hit": 1
+   },
+   {
+    "race": "R32",
+    "score": 0.6014,
+    "hit": 0
+   },
+   {
+    "race": "R33",
+    "score": 0.5901,
+    "hit": 0
+   },
+   {
+    "race": "R34",
+    "score": 0.5788,
+    "hit": 1
+   },
+   {
+    "race": "R35",
+    "score": 0.5675,
+    "hit": 0
+   },
+   {
+    "race": "R36",
+    "score": 0.5562,
+    "hit": 0
+   },
+   {
+    "race": "R37",
+    "score": 0.5449,
+    "hit": 0
+   },
+   {
+    "race": "R38",
+    "score": 0.5336,
+    "hit": 1
+   },
+   {
+    "race": "R39",
+    "score": 0.5223,
+    "hit": 0
+   },
+   {
+    "race": "R40",
+    "score": 0.511,
+    "hit": 0
+   }
+  ],
+  "case_reached": {
+   "min_coverage": 0.2,
+   "target_lower": 0.55,
+   "result": {
+    "k": 16,
+    "threshold": 0.7822,
+    "hits": 13,
+    "rate": 0.8125,
+    "ci_low": 0.5699111903802586,
+    "ci_high": 0.9340840092857187,
+    "target_reached": true,
+    "k_min": 8
+   }
+  },
+  "case_fallback": {
+   "min_coverage": 0.5,
+   "target_lower": 0.8,
+   "result": {
+    "k": 20,
+    "threshold": 0.737,
+    "hits": 15,
+    "rate": 0.75,
+    "ci_low": 0.531299122381256,
+    "ci_high": 0.8881382985923343,
+    "target_reached": false,
+    "k_min": 20
+   }
+  }
+ },
+ "metrics": {
+  "threshold": 0.8,
+  "races": [
+   {
+    "score": 0.912,
+    "honmei_place": 1,
+    "honmei_win": 1,
+    "honmei_place_pay": 110,
+    "fav1_place": 1,
+    "kijun1_place": 1,
+    "refund": false
+   },
+   {
+    "score": 0.874,
+    "honmei_place": 1,
+    "honmei_win": 0,
+    "honmei_place_pay": 120,
+    "fav1_place": 1,
+    "kijun1_place": 1,
+    "refund": false
+   },
+   {
+    "score": 0.861,
+    "honmei_place": 0,
+    "honmei_win": 0,
+    "honmei_place_pay": 0,
+    "fav1_place": 1,
+    "kijun1_place": 0,
+    "refund": false
+   },
+   {
+    "score": 0.843,
+    "honmei_place": 1,
+    "honmei_win": 0,
+    "honmei_place_pay": 130,
+    "fav1_place": 0,
+    "kijun1_place": 1,
+    "refund": false
+   },
+   {
+    "score": 0.833,
+    "honmei_place": null,
+    "honmei_win": null,
+    "honmei_place_pay": null,
+    "fav1_place": 1,
+    "kijun1_place": 1,
+    "refund": true
+   },
+   {
+    "score": 0.801,
+    "honmei_place": 1,
+    "honmei_win": 1,
+    "honmei_place_pay": 140,
+    "fav1_place": 1,
+    "kijun1_place": 1,
+    "refund": false
+   },
+   {
+    "score": 0.764,
+    "honmei_place": 1,
+    "honmei_win": 0,
+    "honmei_place_pay": 160,
+    "fav1_place": 0,
+    "kijun1_place": 0,
+    "refund": false
+   },
+   {
+    "score": 0.722,
+    "honmei_place": 0,
+    "honmei_win": 0,
+    "honmei_place_pay": 0,
+    "fav1_place": 0,
+    "kijun1_place": 1,
+    "refund": false
+   },
+   {
+    "score": 0.655,
+    "honmei_place": 1,
+    "honmei_win": 0,
+    "honmei_place_pay": 230,
+    "fav1_place": 1,
+    "kijun1_place": 1,
+    "refund": false
+   },
+   {
+    "score": 0.511,
+    "honmei_place": 0,
+    "honmei_win": 0,
+    "honmei_place_pay": 0,
+    "fav1_place": 0,
+    "kijun1_place": 0,
+    "refund": false
+   },
+   {
+    "score": null,
+    "honmei_place": 0,
+    "honmei_win": 0,
+    "honmei_place_pay": 0,
+    "fav1_place": 1,
+    "kijun1_place": 1,
+    "refund": false
+   }
+  ],
+  "result": {
+   "n_all": 10,
+   "n_refund": 1,
+   "n_conf": 5,
+   "conf_place_hits": 4,
+   "conf_place_rate": 0.8,
+   "conf_ci_low": 0.37553462976252533,
+   "conf_ci_high": 0.9637758913675698,
+   "conf_place_return": 1.0,
+   "all_place_rate": 0.6,
+   "all_win_rate": 0.2,
+   "all_place_return": 0.89,
+   "fav1_place_rate_all": 0.6,
+   "fav1_place_rate_conf": 0.8,
+   "kijun1_place_rate_all": 0.7
+  }
+ },
+ "json_validation": [
+  {
+   "name": "正しいデモ",
+   "text": "{\"schema\": \"keiba-yosou/v1\", \"kind\": \"demo\", \"generated_at\": \"2026-11-21T21:30:00+09:00\", \"asof\": \"eve\", \"model_version\": \"demo\", \"threshold\": 0.78, \"source\": \"架空のデモデータ\", \"races\": [{\"race_id\": \"202611220511\", \"date\": \"2026-11-22\", \"venue_code\": \"05\", \"race_no\": 11, \"race_name\": \"デモステークス\", \"post_time\": \"15:40\", \"surface\": \"芝\", \"distance_m\": 1600, \"turn\": \"左\", \"n_declared\": 8, \"going_outlook\": null, \"confidence\": {\"score\": 0.81, \"level\": \"high\", \"note\": \"\"}, \"honmei_umaban\": 1, \"horses\": [{\"umaban\": 1, \"wakuban\": 1, \"name\": \"デモホース1\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.81, \"rank\": 1, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 2, \"wakuban\": 1, \"name\": \"デモホース2\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.62, \"rank\": 2, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 3, \"wakuban\": 2, \"name\": \"デモホース3\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.55, \"rank\": 3, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 4, \"wakuban\": 2, \"name\": \"デモホース4\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.4, \"rank\": 4, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 5, \"wakuban\": 3, \"name\": \"デモホース5\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.29, \"rank\": 5, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 6, \"wakuban\": 3, \"name\": \"デモホース6\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.17, \"rank\": 6, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 7, \"wakuban\": 4, \"name\": \"デモホース7\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.1, \"rank\": 7, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 8, \"wakuban\": 4, \"name\": \"デモホース8\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.06, \"rank\": 8, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}]}], \"backtest\": null}",
+   "ok": true,
+   "code": null,
+   "path": null
+  },
+  {
+   "name": "JSONとして壊れている",
+   "text": "{\"schema\": \"keiba-yosou/v1\", ",
+   "ok": false,
+   "code": "E_PARSE",
+   "path": "$"
+  },
+  {
+   "name": "NaN を含む",
+   "text": "{\"schema\": \"keiba-yosou/v1\", \"kind\": \"demo\", \"generated_at\": \"2026-11-21T21:30:00+09:00\", \"asof\": \"eve\", \"model_version\": \"demo\", \"threshold\": 0.78, \"source\": \"架空のデモデータ\", \"races\": [{\"race_id\": \"202611220511\", \"date\": \"2026-11-22\", \"venue_code\": \"05\", \"race_no\": 11, \"race_name\": \"デモステークス\", \"post_time\": \"15:40\", \"surface\": \"芝\", \"distance_m\": 1600, \"turn\": \"左\", \"n_declared\": 8, \"going_outlook\": null, \"confidence\": {\"score\": 0.81, \"level\": \"high\", \"note\": \"\"}, \"honmei_umaban\": 1, \"horses\": [{\"umaban\": 1, \"wakuban\": 1, \"name\": \"デモホース1\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.81, \"rank\": 1, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 2, \"wakuban\": 1, \"name\": \"デモホース2\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.62, \"rank\": 2, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 3, \"wakuban\": 2, \"name\": \"デモホース3\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.55, \"rank\": 3, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 4, \"wakuban\": 2, \"name\": \"デモホース4\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.4, \"rank\": 4, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 5, \"wakuban\": 3, \"name\": \"デモホース5\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.29, \"rank\": 5, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 6, \"wakuban\": 3, \"name\": \"デモホース6\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.17, \"rank\": 6, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 7, \"wakuban\": 4, \"name\": \"デモホース7\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.1, \"rank\": 7, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 8, \"wakuban\": 4, \"name\": \"デモホース8\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": NaN, \"rank\": 8, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}]}], \"backtest\": null}",
+   "ok": false,
+   "code": "E_PARSE",
+   "path": "$"
+  },
+  {
+   "name": "schema が違う",
+   "text": "{\"schema\": \"keiba-yosou/v2\", \"kind\": \"demo\", \"generated_at\": \"2026-11-21T21:30:00+09:00\", \"asof\": \"eve\", \"model_version\": \"demo\", \"threshold\": 0.78, \"source\": \"架空のデモデータ\", \"races\": [{\"race_id\": \"202611220511\", \"date\": \"2026-11-22\", \"venue_code\": \"05\", \"race_no\": 11, \"race_name\": \"デモステークス\", \"post_time\": \"15:40\", \"surface\": \"芝\", \"distance_m\": 1600, \"turn\": \"左\", \"n_declared\": 8, \"going_outlook\": null, \"confidence\": {\"score\": 0.81, \"level\": \"high\", \"note\": \"\"}, \"honmei_umaban\": 1, \"horses\": [{\"umaban\": 1, \"wakuban\": 1, \"name\": \"デモホース1\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.81, \"rank\": 1, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 2, \"wakuban\": 1, \"name\": \"デモホース2\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.62, \"rank\": 2, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 3, \"wakuban\": 2, \"name\": \"デモホース3\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.55, \"rank\": 3, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 4, \"wakuban\": 2, \"name\": \"デモホース4\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.4, \"rank\": 4, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 5, \"wakuban\": 3, \"name\": \"デモホース5\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.29, \"rank\": 5, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 6, \"wakuban\": 3, \"name\": \"デモホース6\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.17, \"rank\": 6, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 7, \"wakuban\": 4, \"name\": \"デモホース7\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.1, \"rank\": 7, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 8, \"wakuban\": 4, \"name\": \"デモホース8\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.06, \"rank\": 8, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}]}], \"backtest\": null}",
+   "ok": false,
+   "code": "E_SCHEMA",
+   "path": "$.schema"
+  },
+  {
+   "name": "asof が当日",
+   "text": "{\"schema\": \"keiba-yosou/v1\", \"kind\": \"demo\", \"generated_at\": \"2026-11-21T21:30:00+09:00\", \"asof\": \"day\", \"model_version\": \"demo\", \"threshold\": 0.78, \"source\": \"架空のデモデータ\", \"races\": [{\"race_id\": \"202611220511\", \"date\": \"2026-11-22\", \"venue_code\": \"05\", \"race_no\": 11, \"race_name\": \"デモステークス\", \"post_time\": \"15:40\", \"surface\": \"芝\", \"distance_m\": 1600, \"turn\": \"左\", \"n_declared\": 8, \"going_outlook\": null, \"confidence\": {\"score\": 0.81, \"level\": \"high\", \"note\": \"\"}, \"honmei_umaban\": 1, \"horses\": [{\"umaban\": 1, \"wakuban\": 1, \"name\": \"デモホース1\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.81, \"rank\": 1, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 2, \"wakuban\": 1, \"name\": \"デモホース2\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.62, \"rank\": 2, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 3, \"wakuban\": 2, \"name\": \"デモホース3\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.55, \"rank\": 3, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 4, \"wakuban\": 2, \"name\": \"デモホース4\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.4, \"rank\": 4, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 5, \"wakuban\": 3, \"name\": \"デモホース5\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.29, \"rank\": 5, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 6, \"wakuban\": 3, \"name\": \"デモホース6\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.17, \"rank\": 6, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 7, \"wakuban\": 4, \"name\": \"デモホース7\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.1, \"rank\": 7, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 8, \"wakuban\": 4, \"name\": \"デモホース8\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.06, \"rank\": 8, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}]}], \"backtest\": null}",
+   "ok": false,
+   "code": "E_FIELD",
+   "path": "$.asof"
+  },
+  {
+   "name": "確率が1を超える",
+   "text": "{\"schema\": \"keiba-yosou/v1\", \"kind\": \"demo\", \"generated_at\": \"2026-11-21T21:30:00+09:00\", \"asof\": \"eve\", \"model_version\": \"demo\", \"threshold\": 0.78, \"source\": \"架空のデモデータ\", \"races\": [{\"race_id\": \"202611220511\", \"date\": \"2026-11-22\", \"venue_code\": \"05\", \"race_no\": 11, \"race_name\": \"デモステークス\", \"post_time\": \"15:40\", \"surface\": \"芝\", \"distance_m\": 1600, \"turn\": \"左\", \"n_declared\": 8, \"going_outlook\": null, \"confidence\": {\"score\": 0.81, \"level\": \"high\", \"note\": \"\"}, \"honmei_umaban\": 1, \"horses\": [{\"umaban\": 1, \"wakuban\": 1, \"name\": \"デモホース1\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.81, \"rank\": 1, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 2, \"wakuban\": 1, \"name\": \"デモホース2\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.62, \"rank\": 2, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 3, \"wakuban\": 2, \"name\": \"デモホース3\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.55, \"rank\": 3, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 4, \"wakuban\": 2, \"name\": \"デモホース4\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.4, \"rank\": 4, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 5, \"wakuban\": 3, \"name\": \"デモホース5\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.29, \"rank\": 5, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 6, \"wakuban\": 3, \"name\": \"デモホース6\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.17, \"rank\": 6, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 7, \"wakuban\": 4, \"name\": \"デモホース7\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.1, \"rank\": 7, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 8, \"wakuban\": 4, \"name\": \"デモホース8\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 1.2, \"rank\": 8, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}]}], \"backtest\": null}",
+   "ok": false,
+   "code": "E_RANGE",
+   "path": "$.races[0].horses[7].p_place"
+  },
+  {
+   "name": "馬番の重複",
+   "text": "{\"schema\": \"keiba-yosou/v1\", \"kind\": \"demo\", \"generated_at\": \"2026-11-21T21:30:00+09:00\", \"asof\": \"eve\", \"model_version\": \"demo\", \"threshold\": 0.78, \"source\": \"架空のデモデータ\", \"races\": [{\"race_id\": \"202611220511\", \"date\": \"2026-11-22\", \"venue_code\": \"05\", \"race_no\": 11, \"race_name\": \"デモステークス\", \"post_time\": \"15:40\", \"surface\": \"芝\", \"distance_m\": 1600, \"turn\": \"左\", \"n_declared\": 8, \"going_outlook\": null, \"confidence\": {\"score\": 0.81, \"level\": \"high\", \"note\": \"\"}, \"honmei_umaban\": 1, \"horses\": [{\"umaban\": 1, \"wakuban\": 1, \"name\": \"デモホース1\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.81, \"rank\": 1, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 1, \"wakuban\": 1, \"name\": \"デモホース2\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.62, \"rank\": 2, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 3, \"wakuban\": 2, \"name\": \"デモホース3\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.55, \"rank\": 3, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 4, \"wakuban\": 2, \"name\": \"デモホース4\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.4, \"rank\": 4, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 5, \"wakuban\": 3, \"name\": \"デモホース5\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.29, \"rank\": 5, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 6, \"wakuban\": 3, \"name\": \"デモホース6\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.17, \"rank\": 6, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 7, \"wakuban\": 4, \"name\": \"デモホース7\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.1, \"rank\": 7, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 8, \"wakuban\": 4, \"name\": \"デモホース8\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.06, \"rank\": 8, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}]}], \"backtest\": null}",
+   "ok": false,
+   "code": "E_DUP",
+   "path": "$.races[0].horses[1].umaban"
+  },
+  {
+   "name": "自信度としきい値の不一致",
+   "text": "{\"schema\": \"keiba-yosou/v1\", \"kind\": \"demo\", \"generated_at\": \"2026-11-21T21:30:00+09:00\", \"asof\": \"eve\", \"model_version\": \"demo\", \"threshold\": 0.78, \"source\": \"架空のデモデータ\", \"races\": [{\"race_id\": \"202611220511\", \"date\": \"2026-11-22\", \"venue_code\": \"05\", \"race_no\": 11, \"race_name\": \"デモステークス\", \"post_time\": \"15:40\", \"surface\": \"芝\", \"distance_m\": 1600, \"turn\": \"左\", \"n_declared\": 8, \"going_outlook\": null, \"confidence\": {\"score\": 0.7, \"level\": \"high\", \"note\": \"\"}, \"honmei_umaban\": 1, \"horses\": [{\"umaban\": 1, \"wakuban\": 1, \"name\": \"デモホース1\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.81, \"rank\": 1, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 2, \"wakuban\": 1, \"name\": \"デモホース2\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.62, \"rank\": 2, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 3, \"wakuban\": 2, \"name\": \"デモホース3\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.55, \"rank\": 3, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 4, \"wakuban\": 2, \"name\": \"デモホース4\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.4, \"rank\": 4, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 5, \"wakuban\": 3, \"name\": \"デモホース5\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.29, \"rank\": 5, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 6, \"wakuban\": 3, \"name\": \"デモホース6\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.17, \"rank\": 6, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 7, \"wakuban\": 4, \"name\": \"デモホース7\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.1, \"rank\": 7, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 8, \"wakuban\": 4, \"name\": \"デモホース8\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.06, \"rank\": 8, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}]}], \"backtest\": null}",
+   "ok": false,
+   "code": "E_CONSIST",
+   "path": "$.races[0].confidence.level"
+  },
+  {
+   "name": "頭数の不一致",
+   "text": "{\"schema\": \"keiba-yosou/v1\", \"kind\": \"demo\", \"generated_at\": \"2026-11-21T21:30:00+09:00\", \"asof\": \"eve\", \"model_version\": \"demo\", \"threshold\": 0.78, \"source\": \"架空のデモデータ\", \"races\": [{\"race_id\": \"202611220511\", \"date\": \"2026-11-22\", \"venue_code\": \"05\", \"race_no\": 11, \"race_name\": \"デモステークス\", \"post_time\": \"15:40\", \"surface\": \"芝\", \"distance_m\": 1600, \"turn\": \"左\", \"n_declared\": 9, \"going_outlook\": null, \"confidence\": {\"score\": 0.81, \"level\": \"high\", \"note\": \"\"}, \"honmei_umaban\": 1, \"horses\": [{\"umaban\": 1, \"wakuban\": 1, \"name\": \"デモホース1\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.81, \"rank\": 1, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 2, \"wakuban\": 1, \"name\": \"デモホース2\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.62, \"rank\": 2, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 3, \"wakuban\": 2, \"name\": \"デモホース3\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.55, \"rank\": 3, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 4, \"wakuban\": 2, \"name\": \"デモホース4\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.4, \"rank\": 4, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 5, \"wakuban\": 3, \"name\": \"デモホース5\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.29, \"rank\": 5, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 6, \"wakuban\": 3, \"name\": \"デモホース6\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.17, \"rank\": 6, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 7, \"wakuban\": 4, \"name\": \"デモホース7\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.1, \"rank\": 7, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 8, \"wakuban\": 4, \"name\": \"デモホース8\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.06, \"rank\": 8, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}]}], \"backtest\": null}",
+   "ok": false,
+   "code": "E_CONSIST",
+   "path": "$.races[0].n_declared"
+  },
+  {
+   "name": "名前が長すぎる",
+   "text": "{\"schema\": \"keiba-yosou/v1\", \"kind\": \"demo\", \"generated_at\": \"2026-11-21T21:30:00+09:00\", \"asof\": \"eve\", \"model_version\": \"demo\", \"threshold\": 0.78, \"source\": \"架空のデモデータ\", \"races\": [{\"race_id\": \"202611220511\", \"date\": \"2026-11-22\", \"venue_code\": \"05\", \"race_no\": 11, \"race_name\": \"デモステークス\", \"post_time\": \"15:40\", \"surface\": \"芝\", \"distance_m\": 1600, \"turn\": \"左\", \"n_declared\": 8, \"going_outlook\": null, \"confidence\": {\"score\": 0.81, \"level\": \"high\", \"note\": \"\"}, \"honmei_umaban\": 1, \"horses\": [{\"umaban\": 1, \"wakuban\": 1, \"name\": \"アアアアアアアアアアアアアアアアアアアアア\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.81, \"rank\": 1, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 2, \"wakuban\": 1, \"name\": \"デモホース2\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.62, \"rank\": 2, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 3, \"wakuban\": 2, \"name\": \"デモホース3\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.55, \"rank\": 3, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 4, \"wakuban\": 2, \"name\": \"デモホース4\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.4, \"rank\": 4, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 5, \"wakuban\": 3, \"name\": \"デモホース5\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.29, \"rank\": 5, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 6, \"wakuban\": 3, \"name\": \"デモホース6\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.17, \"rank\": 6, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 7, \"wakuban\": 4, \"name\": \"デモホース7\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.1, \"rank\": 7, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 8, \"wakuban\": 4, \"name\": \"デモホース8\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.06, \"rank\": 8, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}]}], \"backtest\": null}",
+   "ok": false,
+   "code": "E_FIELD",
+   "path": "$.races[0].horses[0].name"
+  },
+  {
+   "name": "本命が最上位の馬でない",
+   "text": "{\"schema\": \"keiba-yosou/v1\", \"kind\": \"demo\", \"generated_at\": \"2026-11-21T21:30:00+09:00\", \"asof\": \"eve\", \"model_version\": \"demo\", \"threshold\": 0.78, \"source\": \"架空のデモデータ\", \"races\": [{\"race_id\": \"202611220511\", \"date\": \"2026-11-22\", \"venue_code\": \"05\", \"race_no\": 11, \"race_name\": \"デモステークス\", \"post_time\": \"15:40\", \"surface\": \"芝\", \"distance_m\": 1600, \"turn\": \"左\", \"n_declared\": 8, \"going_outlook\": null, \"confidence\": {\"score\": 0.81, \"level\": \"high\", \"note\": \"\"}, \"honmei_umaban\": 2, \"horses\": [{\"umaban\": 1, \"wakuban\": 1, \"name\": \"デモホース1\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.81, \"rank\": 1, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 2, \"wakuban\": 1, \"name\": \"デモホース2\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.62, \"rank\": 2, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 3, \"wakuban\": 2, \"name\": \"デモホース3\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.55, \"rank\": 3, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 4, \"wakuban\": 2, \"name\": \"デモホース4\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.4, \"rank\": 4, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 5, \"wakuban\": 3, \"name\": \"デモホース5\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.29, \"rank\": 5, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 6, \"wakuban\": 3, \"name\": \"デモホース6\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.17, \"rank\": 6, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 7, \"wakuban\": 4, \"name\": \"デモホース7\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.1, \"rank\": 7, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 8, \"wakuban\": 4, \"name\": \"デモホース8\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.06, \"rank\": 8, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}]}], \"backtest\": null}",
+   "ok": false,
+   "code": "E_CONSIST",
+   "path": "$.races[0].honmei_umaban"
+  },
+  {
+   "name": "レースIDと日付の不一致",
+   "text": "{\"schema\": \"keiba-yosou/v1\", \"kind\": \"demo\", \"generated_at\": \"2026-11-21T21:30:00+09:00\", \"asof\": \"eve\", \"model_version\": \"demo\", \"threshold\": 0.78, \"source\": \"架空のデモデータ\", \"races\": [{\"race_id\": \"202611220511\", \"date\": \"2026-11-23\", \"venue_code\": \"05\", \"race_no\": 11, \"race_name\": \"デモステークス\", \"post_time\": \"15:40\", \"surface\": \"芝\", \"distance_m\": 1600, \"turn\": \"左\", \"n_declared\": 8, \"going_outlook\": null, \"confidence\": {\"score\": 0.81, \"level\": \"high\", \"note\": \"\"}, \"honmei_umaban\": 1, \"horses\": [{\"umaban\": 1, \"wakuban\": 1, \"name\": \"デモホース1\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.81, \"rank\": 1, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 2, \"wakuban\": 1, \"name\": \"デモホース2\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.62, \"rank\": 2, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 3, \"wakuban\": 2, \"name\": \"デモホース3\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.55, \"rank\": 3, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 4, \"wakuban\": 2, \"name\": \"デモホース4\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.4, \"rank\": 4, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 5, \"wakuban\": 3, \"name\": \"デモホース5\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.29, \"rank\": 5, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 6, \"wakuban\": 3, \"name\": \"デモホース6\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.17, \"rank\": 6, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 7, \"wakuban\": 4, \"name\": \"デモホース7\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.1, \"rank\": 7, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 8, \"wakuban\": 4, \"name\": \"デモホース8\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.06, \"rank\": 8, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}]}], \"backtest\": null}",
+   "ok": false,
+   "code": "E_CONSIST",
+   "path": "$.races[0].date"
+  },
+  {
+   "name": "11項目の欠け",
+   "text": "{\"schema\": \"keiba-yosou/v1\", \"kind\": \"demo\", \"generated_at\": \"2026-11-21T21:30:00+09:00\", \"asof\": \"eve\", \"model_version\": \"demo\", \"threshold\": 0.78, \"source\": \"架空のデモデータ\", \"races\": [{\"race_id\": \"202611220511\", \"date\": \"2026-11-22\", \"venue_code\": \"05\", \"race_no\": 11, \"race_name\": \"デモステークス\", \"post_time\": \"15:40\", \"surface\": \"芝\", \"distance_m\": 1600, \"turn\": \"左\", \"n_declared\": 8, \"going_outlook\": null, \"confidence\": {\"score\": 0.81, \"level\": \"high\", \"note\": \"\"}, \"honmei_umaban\": 1, \"horses\": [{\"umaban\": 1, \"wakuban\": 1, \"name\": \"デモホース1\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.81, \"rank\": 1, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 2, \"wakuban\": 1, \"name\": \"デモホース2\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.62, \"rank\": 2, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 3, \"wakuban\": 2, \"name\": \"デモホース3\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.55, \"rank\": 3, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 4, \"wakuban\": 2, \"name\": \"デモホース4\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.4, \"rank\": 4, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 5, \"wakuban\": 3, \"name\": \"デモホース5\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.29, \"rank\": 5, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 6, \"wakuban\": 3, \"name\": \"デモホース6\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.17, \"rank\": 6, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 7, \"wakuban\": 4, \"name\": \"デモホース7\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.1, \"rank\": 7, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 8, \"wakuban\": 4, \"name\": \"デモホース8\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.06, \"rank\": 8, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}]}], \"backtest\": null}",
+   "ok": false,
+   "code": "E_FIELD",
+   "path": "$.races[0].horses[0].items.f07"
+  },
+  {
+   "name": "確率の合計が合わない",
+   "text": "{\"schema\": \"keiba-yosou/v1\", \"kind\": \"demo\", \"generated_at\": \"2026-11-21T21:30:00+09:00\", \"asof\": \"eve\", \"model_version\": \"demo\", \"threshold\": 0.78, \"source\": \"架空のデモデータ\", \"races\": [{\"race_id\": \"202611220511\", \"date\": \"2026-11-22\", \"venue_code\": \"05\", \"race_no\": 11, \"race_name\": \"デモステークス\", \"post_time\": \"15:40\", \"surface\": \"芝\", \"distance_m\": 1600, \"turn\": \"左\", \"n_declared\": 8, \"going_outlook\": null, \"confidence\": {\"score\": 0.81, \"level\": \"high\", \"note\": \"\"}, \"honmei_umaban\": 1, \"horses\": [{\"umaban\": 1, \"wakuban\": 1, \"name\": \"デモホース1\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.81, \"rank\": 1, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 2, \"wakuban\": 1, \"name\": \"デモホース2\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.558, \"rank\": 2, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 3, \"wakuban\": 2, \"name\": \"デモホース3\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.495, \"rank\": 3, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 4, \"wakuban\": 2, \"name\": \"デモホース4\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.36, \"rank\": 4, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 5, \"wakuban\": 3, \"name\": \"デモホース5\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.261, \"rank\": 5, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 6, \"wakuban\": 3, \"name\": \"デモホース6\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.153, \"rank\": 6, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 7, \"wakuban\": 4, \"name\": \"デモホース7\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.09, \"rank\": 7, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 8, \"wakuban\": 4, \"name\": \"デモホース8\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.054, \"rank\": 8, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}]}], \"backtest\": null}",
+   "ok": false,
+   "code": "E_CONSIST",
+   "path": "$.races[0].horses.p_place"
+  },
+  {
+   "name": "真偽値を数値の欄に",
+   "text": "{\"schema\": \"keiba-yosou/v1\", \"kind\": \"demo\", \"generated_at\": \"2026-11-21T21:30:00+09:00\", \"asof\": \"eve\", \"model_version\": \"demo\", \"threshold\": 0.78, \"source\": \"架空のデモデータ\", \"races\": [{\"race_id\": \"202611220511\", \"date\": \"2026-11-22\", \"venue_code\": \"05\", \"race_no\": true, \"race_name\": \"デモステークス\", \"post_time\": \"15:40\", \"surface\": \"芝\", \"distance_m\": 1600, \"turn\": \"左\", \"n_declared\": 8, \"going_outlook\": null, \"confidence\": {\"score\": 0.81, \"level\": \"high\", \"note\": \"\"}, \"honmei_umaban\": 1, \"horses\": [{\"umaban\": 1, \"wakuban\": 1, \"name\": \"デモホース1\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.81, \"rank\": 1, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 2, \"wakuban\": 1, \"name\": \"デモホース2\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.62, \"rank\": 2, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 3, \"wakuban\": 2, \"name\": \"デモホース3\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.55, \"rank\": 3, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 4, \"wakuban\": 2, \"name\": \"デモホース4\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.4, \"rank\": 4, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 5, \"wakuban\": 3, \"name\": \"デモホース5\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.29, \"rank\": 5, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 6, \"wakuban\": 3, \"name\": \"デモホース6\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.17, \"rank\": 6, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 7, \"wakuban\": 4, \"name\": \"デモホース7\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.1, \"rank\": 7, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 8, \"wakuban\": 4, \"name\": \"デモホース8\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.06, \"rank\": 8, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}]}], \"backtest\": null}",
+   "ok": false,
+   "code": "E_RANGE",
+   "path": "$.races[0].race_no"
+  },
+  {
+   "name": "HTMLタグを含む名前（形式は正しいので受け入れ、表示は textContent）",
+   "text": "{\"schema\": \"keiba-yosou/v1\", \"kind\": \"demo\", \"generated_at\": \"2026-11-21T21:30:00+09:00\", \"asof\": \"eve\", \"model_version\": \"demo\", \"threshold\": 0.78, \"source\": \"架空のデモデータ\", \"races\": [{\"race_id\": \"202611220511\", \"date\": \"2026-11-22\", \"venue_code\": \"05\", \"race_no\": 11, \"race_name\": \"デモステークス\", \"post_time\": \"15:40\", \"surface\": \"芝\", \"distance_m\": 1600, \"turn\": \"左\", \"n_declared\": 8, \"going_outlook\": null, \"confidence\": {\"score\": 0.81, \"level\": \"high\", \"note\": \"\"}, \"honmei_umaban\": 1, \"horses\": [{\"umaban\": 1, \"wakuban\": 1, \"name\": \"デモホース1\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.81, \"rank\": 1, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 2, \"wakuban\": 1, \"name\": \"デモホース2\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.62, \"rank\": 2, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 3, \"wakuban\": 2, \"name\": \"<img src=x>\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.55, \"rank\": 3, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 4, \"wakuban\": 2, \"name\": \"デモホース4\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.4, \"rank\": 4, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 5, \"wakuban\": 3, \"name\": \"デモホース5\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.29, \"rank\": 5, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 6, \"wakuban\": 3, \"name\": \"デモホース6\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.17, \"rank\": 6, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 7, \"wakuban\": 4, \"name\": \"デモホース7\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.1, \"rank\": 7, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}, {\"umaban\": 8, \"wakuban\": 4, \"name\": \"デモホース8\", \"sex\": \"牡\", \"age\": 4, \"jockey\": \"デモ騎手\", \"carried_kg\": 57.0, \"p_place\": 0.06, \"rank\": 8, \"items\": {\"f01\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f02\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f03\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f04\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f05\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f06\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f07\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f08\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f09\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}, \"f10\": {\"v\": 0.214286, \"n\": 7, \"t\": \"直近7走 3着内4回\"}, \"f11\": {\"v\": null, \"n\": 0, \"t\": \"データなし\"}}}]}], \"backtest\": null}",
+   "ok": true,
+   "code": null,
+   "path": null
+  }
+ ]
+}
