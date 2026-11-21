@@ -1,8 +1,10 @@
 // app/tests.html から実行するテスト。結果は textContent で表示する。
-import { validatePredictionText, validateStatsText, places, levelOf, starsOf } from './validate.js';
+import { validatePredictionText, validateStatsText, validateRecordText, places, levelOf, starsOf } from './validate.js';
 import { combos, allocate, payoutYen } from './bets.js';
-import { KEY, loadFiles, prepareImport, commitImport, sha256Hex, MAX_FILES, STATS_KEY, saveStats, loadStats, isStatsText } from './store.js';
-import { el, pct, render, state, ITEM_LABEL, budgetOf } from './app.js';
+import { KEY, loadFiles, prepareImport, commitImport, sha256Hex, MAX_FILES, STATS_KEY, saveStats, loadStats, isStatsText,
+  RECORD_KEY, saveRecord, loadRecord, isRecordText } from './store.js';
+import { el, pct, render, state, ITEM_LABEL, budgetOf, demoRecordOf } from './app.js';
+import { summarizeRecord, inPlace } from './record.js';
 
 const results = [];
 async function t(name, fn) {
@@ -470,6 +472,132 @@ async function main() {
     render();
     ok(document.getElementById('main').textContent.includes('取り込みました（テスト）。'));
     eq(state.flash, '');
+  });
+
+  // 5c. 実戦の記録（keiba-record/v1、2026-11-21）
+  const savedRec = (() => { try { return localStorage.getItem(RECORD_KEY); } catch (e) { return null; } })();
+  const demoRec = demo.demo_record;
+  const recText = JSON.stringify(demoRec);
+  const realRec = () => { const o = JSON.parse(recText); o.kind = 'record'; o.source = 'テスト（実戦の記録）'; return o; };
+  await t('記録：デモ JSON に架空の記録（kind=demo・2099年・馬名はデモ）があり、検査に通る', () => {
+    ok(demoRec && demoRec.kind === 'demo', 'demo_record');
+    const r = validateRecordText(recText); ok(r.ok, `${r.code} ${r.path}`);
+    ok(demoRec.races.every((x) => x.date.startsWith('2099') && x.honmei_name.startsWith('デモ')));
+    ok(!('summary' in demoRec), 'デモに集計は入れない（明細から計算）');
+  });
+  await t('記録の検査：形・範囲・食い違い・後出し・並び・大きさを止める', () => {
+    const bad = (fn) => { const o = JSON.parse(recText); fn(o); return validateRecordText(JSON.stringify(o)); };
+    eq(bad((o) => { o.schema = 'x'; }).code, 'E_SCHEMA');
+    eq(bad((o) => { o.races[0].stars = 6; }).path, '$.races[0].stars');
+    const i = demoRec.races.findIndex((x) => x.bets.tri);
+    eq(bad((o) => { o.races[i].bets.tri.cost = 700; }).path, `$.races[${i}].bets.tri.cost`);
+    const j = demoRec.races.findIndex((x) => x.status === 'ok' && x.honmei_finish !== 1 && x.bets.tan);
+    eq(bad((o) => { o.races[j].bets.tan.pay = 500; }).path, `$.races[${j}].bets.tan`);
+    eq(bad((o) => { o.days[0].pred_generated_at = o.days[0].date + 'T10:00:00+09:00'; }).code, 'E_LATE');
+    eq(bad((o) => { o.races.reverse(); }).code, 'E_ORDER');
+    eq(bad((o) => { o.races.pop(); }).path, `$.days[${demoRec.days.length - 1}].n_recorded`);
+    const k = demoRec.races.findIndex((x) => x.status === 'ok');
+    eq(bad((o) => { o.races[k].status = 'refund'; }).code, 'E_CONSIST');
+    eq(bad((o) => { o.races[0].honmei_name = 'あ'.repeat(21); }).path, '$.races[0].honmei_name');
+    eq(validateRecordText('{"schema":').code, 'E_PARSE');
+    eq(validateRecordText(' '.repeat(5000001)).code, 'E_SIZE');
+    eq(validateRecordText(null).ok, false);
+  });
+  await t('記録の集計：明細から計算し直す（返還・払戻なしは数えない、★4＋★5＝★5＋★4）', () => {
+    const base = { date: '2099-01-01', venue_code: '05', post_time: '10:00', partners: [2, 3, 4], honmei_umaban: 1, honmei_name: 'デモ', n_starters: 10 };
+    const B = (tan, fuku) => ({ tan, fuku, umaren: { cost: 300, pay: 0 }, umatan: null, trio: { cost: 300, pay: 900 }, tri: { cost: 600, pay: 0 } });
+    const rs = [
+      { ...base, race_id: '209901010501', race_no: 1, stars: 5, status: 'ok', honmei_status: '完走', honmei_finish: 1, bets: B({ cost: 100, pay: 250 }, { cost: 100, pay: 120 }) },
+      { ...base, race_id: '209901010502', race_no: 2, stars: 4, status: 'ok', honmei_status: '完走', honmei_finish: 3, bets: B({ cost: 100, pay: 0 }, { cost: 100, pay: 180 }) },
+      { ...base, race_id: '209901010503', race_no: 3, stars: 5, status: 'refund', honmei_status: '取消', honmei_finish: null, bets: { tan: null, fuku: null, umaren: null, umatan: null, trio: null, tri: null } },
+      { ...base, race_id: '209901010504', race_no: 4, stars: 2, status: 'ok', honmei_status: '中止', honmei_finish: null, bets: B({ cost: 100, pay: 0 }, { cost: 100, pay: 0 }) },
+    ];
+    const s = summarizeRecord(rs);
+    eq([s.s5.n_races, s.s5.n_refund, s.s4.n_races, s.s45.n_races, s.all.n_races], [1, 1, 1, 2, 3]);
+    eq([s.all.n_win, s.all.n_place], [1, 2]);
+    eq(s.all.bets.tan, { n_races: 3, n_hit: 1, hit_rate: 1 / 3, cost_yen: 300, pay_yen: 250, roi: 250 / 300 });
+    eq(s.all.bets.umatan.n_races, 0); eq(s.all.bets.umatan.roi, null);
+    eq(s.s45.bets.fuku.pay_yen, 300);
+    eq(inPlace({ honmei_finish: 3, n_starters: 7 }), false);   // 7 頭以下は 2 着まで
+    const d = summarizeRecord(demoRec.races);
+    for (const b of ['tan', 'fuku', 'umaren', 'umatan', 'trio', 'tri']) {
+      eq(d.s45.bets[b].cost_yen, d.s5.bets[b].cost_yen + d.s4.bets[b].cost_yen, b);
+      eq(d.s45.bets[b].n_hit, d.s5.bets[b].n_hit + d.s4.bets[b].n_hit, b);
+    }
+    eq(d.all.bets.tan.n_hit, d.all.n_win);
+    eq(d.all.bets.fuku.n_hit, d.all.n_place);
+  });
+  await t('記録の保存：実データの記録は保存・読み込みでき、デモの記録・壊れたものは保存しない／起動時に消す', () => {
+    try {
+      eq(isRecordText(recText), true); eq(isRecordText(demoText), false);
+      eq(saveRecord(recText).ok, false);                        // kind=demo は取り込まない
+      const r = saveRecord(JSON.stringify(realRec()));
+      ok(r.ok); eq(loadRecord().record.races.length, demoRec.races.length);
+      eq(saveRecord('{"schema":"keiba-record/v1"}').ok, false);
+      eq(loadRecord().record.races.length, demoRec.races.length);  // 壊れたファイルでは今の記録を上書きしない
+      localStorage.setItem(RECORD_KEY, '{"schema":"keiba-record/v1","kind":"record"}');
+      eq(loadRecord(), { record: null, removed: 1 });
+      eq(localStorage.getItem(RECORD_KEY), null);
+    } finally {
+      if (savedRec === null) localStorage.removeItem(RECORD_KEY); else localStorage.setItem(RECORD_KEY, savedRec);
+    }
+  });
+  await t('記録の画面：デモの記録が成績画面に出る（区分・券種・期間・日ごと→明細・少ないときの注意・免責）', () => {
+    state.demo = demo; state.demoRecord = demoRec; state.record = null; state.stats = null; state.recSeg = 's45';
+    location.hash = '#/stats'; render();
+    const main = document.getElementById('main');
+    const txt = main.textContent;
+    for (const w of ['実戦の記録', 'デモの記録', '★4＋★5', '全体', '1着率', '3着以内率', '回収率', '三連単（6点）', '期間：2099-11-01〜2099-11-16',
+      'レース数が少なく、偶然で大きく上下します', '購入を勧めるものでもありません', '20歳未満']) ok(txt.includes(w), w);
+    ok(!txt.includes('2026年検証'), '成績ファイルなしでは 2026 年を並べない');
+    eq(main.querySelectorAll('details.recday').length, demoRec.days.length);
+    eq(main.querySelectorAll('details.recrace').length, demoRec.races.length);
+    ok(txt.includes('取消（返還）'));
+    eq(main.querySelectorAll('table.bets').length, 8);
+    for (const w of ['買い', 'おすすめ']) ok(!txt.includes(w), w);
+    ok([...main.querySelectorAll('a')].every((a) => (a.getAttribute('href') || '').startsWith('#')), '外部リンクなし');
+    const S = summarizeRecord(demoRec.races);
+    ok(txt.includes(`${S.s45.bets.tan.n_hit}/${S.s45.bets.tan.n_races}`));
+    [...main.querySelectorAll('.recbox .chips button')].find((b) => b.textContent === '全体').click();
+    eq(state.recSeg, 'all');
+    ok(document.getElementById('main').textContent.includes(`全体：${S.all.n_races} レース`));
+    state.recSeg = 's45';
+  });
+  await t('記録の画面：取り込んだ記録は「取り込んだ実戦の記録」。成績ファイル（実データ）があるときだけ 2026 年の検証を並べる', () => {
+    const rec = realRec(); rec.races[0].honmei_name = '<img src=x>';
+    state.record = rec;
+    location.hash = '#/stats'; render();
+    let main = document.getElementById('main');
+    ok(main.textContent.includes('取り込んだ実戦の記録')); ok(!main.textContent.includes('デモの記録（架空'));
+    eq(main.querySelectorAll('img').length, 0); ok(main.textContent.includes('<img src=x>'));
+    ok(!main.textContent.includes('2026年検証'));
+    const seg = (key, rate) => ({ key, label: key, n_races: 50, honmei_win_rate: 0.3, honmei_place_rate: rate, rows: [{ bet: 'tan', basis: 'model', n_races: 50, hit_rate: 0.3, roi: 0.777 }] });
+    state.stats = { ...statsObj, bets: [{ period: '2026年の検証（テスト）', segments: [seg('s5', 0.6111), seg('s4', 0.5222), seg('s45', 0.5666)] }] };
+    render(); main = document.getElementById('main');
+    for (const w of ['参考：2026年検証の3着以内率', '56.7%', '参考：2026年検証の回収率', '77.7%', '2026年の検証（テスト）']) ok(main.textContent.includes(w), w);
+    state.stats = { ...state.stats, kind: 'demo' };
+    render();
+    ok(!document.getElementById('main').textContent.includes('参考：2026年検証'), 'デモの成績ファイルでは並べない');
+    state.stats = null; state.record = null;
+  });
+  await t('記録の取り込み画面：記録が出て、それだけを消せる（予想・成績ファイルは残る）', () => {
+    try {
+      saveRecord(JSON.stringify(realRec())); state.record = loadRecord().record;
+      location.hash = '#/import'; render();
+      const main = document.getElementById('main');
+      ok(main.textContent.includes('実戦の記録（record.json）'));
+      ok(main.textContent.includes(`${demoRec.days.length}日・${demoRec.races.length}レース`));
+      const orig = window.confirm; window.confirm = () => true;
+      try {
+        const btn = [...main.querySelectorAll('.files button')].find((b) => b.closest('ul').previousElementSibling.textContent.includes('実戦の記録'));
+        btn.click();
+      } finally { window.confirm = orig; }
+      eq(state.record, null); eq(localStorage.getItem(RECORD_KEY), null);
+      eq(demoRecordOf({ demo_record: { ...demoRec, races: 'x' } }), null);   // 壊れたデモの記録は使わない
+    } finally {
+      if (savedRec === null) localStorage.removeItem(RECORD_KEY); else localStorage.setItem(RECORD_KEY, savedRec);
+      state.record = null;
+    }
   });
 
   // 6. ソースの約束

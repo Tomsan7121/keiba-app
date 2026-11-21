@@ -1,7 +1,9 @@
 // 競馬予想（分析の補助）— 画面。外部から来た文字はすべて textContent で表示する（HTML として解釈させない）。
-import { validatePredictionText } from './validate.js';
-import { loadFiles, clearAll, prepareImport, commitImport, saveFiles, MAX_FILES, loadStats, saveStats, isStatsText, clearStats } from './store.js';
+import { validatePredictionText, validateRecordText } from './validate.js';
+import { loadFiles, clearAll, prepareImport, commitImport, saveFiles, MAX_FILES, loadStats, saveStats, isStatsText, clearStats,
+  loadRecord, saveRecord, clearRecord, isRecordText } from './store.js';
 import { BET_TYPES, METHODS, methodsFor, maxAxis, combos, allocate, payoutYen } from './bets.js';
+import { summarizeRecord, byDay, REC_BETS, REC_SEGMENTS, FEW_RACES, inPlace } from './record.js';
 
 export const VENUE = { '01': '札幌', '02': '函館', '03': '福島', '04': '新潟', '05': '東京', '06': '中山', '07': '中京', '08': '京都', '09': '阪神', '10': '小倉' };
 export const ITEM_LABEL = {
@@ -15,7 +17,7 @@ export const EXTRA_LABEL = {
 };
 export const LEVEL_LABEL = { high: '自信：高', mid: '自信：中', low: '自信：低', none: '対象外' };
 
-export const state = { files: [], demo: null, useDemo: false, notice: '', flash: '', dateSel: null, onlyHigh: false, stats: null, build: null, keepScroll: false };
+export const state = { files: [], demo: null, demoRecord: null, useDemo: false, notice: '', flash: '', dateSel: null, onlyHigh: false, stats: null, record: null, recSeg: 's45', build: null, keepScroll: false };
 
 // 星（★1〜★5）。古いファイル（stars なし）は null
 export function starsOfRace(r) { return Number.isInteger(r.stars) && r.stars >= 1 && r.stars <= 5 ? r.stars : null; }
@@ -475,8 +477,135 @@ function statsSource() {
   return { real: false, label: 'デモの数字です（架空のデータで計算した動作確認用。意味はありません）', b25: b, v26: null, odds: null, trio: null, bets: b.bets, stake: b.stake, notes: b.notes };
 }
 
+// --- 実戦の記録（keiba-record/v1）。取り込んだ記録があればそれ、無ければデモの架空の記録 ---
+const REC_BET_LABEL = { tan: '単勝（1点）', fuku: '複勝（1点）', umaren: '馬連（3点）', umatan: '馬単（3点）', trio: '三連複（3点）', tri: '三連単（6点）' };
+const REC_BET_SHORT = { tan: '単勝', fuku: '複勝', umaren: '馬連', umatan: '馬単', trio: '三連複', tri: '三連単' };
+
+function recordSource() {
+  if (state.record) {
+    return { real: true, doc: state.record, label: `取り込んだ実戦の記録（作成 ${state.record.generated_at.replace('T', ' ').slice(0, 16)}）・この端末の中だけに保存` };
+  }
+  if (state.demoRecord) return { real: false, doc: state.demoRecord, label: 'デモの記録（架空のレース・架空の数字です）' };
+  return null;
+}
+
+function finishText(r) {
+  if (r.status === 'refund') return `${r.honmei_status}（返還）`;
+  if (r.honmei_status !== '完走') return r.honmei_status;
+  return `${r.honmei_finish}着`;
+}
+
+// 2026 年の検証の数字（取り込んだ成績ファイル keiba-stats/v1 の実データにあるときだけ。app/ に実数は入れない）
+function v26Segments() {
+  const s = state.stats;
+  if (!s || s.kind !== 'stats' || !Array.isArray(s.bets)) return null;
+  const bl = s.bets.find((b) => b && typeof b.period === 'string' && b.period.includes('2026'));
+  if (!bl || !Array.isArray(bl.segments)) return null;
+  return { period: bl.period, seg: (k) => bl.segments.find((x) => x && x.key === k) || null };
+}
+
+export function recordBlock() {
+  const box = el('section', { class: 'recbox', 'aria-label': '実戦の記録' });
+  box.append(el('h3', {}, '実戦の記録（予想と結果の照らし合わせ）'));
+  const R = recordSource();
+  if (!R) {
+    box.append(el('p', { class: 'muted' }, '記録がありません。パソコンで作った記録ファイル（record.json）を「取り込み」から入れると表示されます。'));
+    return box;
+  }
+  const doc = R.doc;
+  box.append(el('div', { class: 'srcbar' + (R.real ? '' : ' demo') }, '表示中：' + R.label));
+  if (!R.real) box.append(el('p', { class: 'warnbox' }, 'これはデモの記録です（架空）。実際の記録は、パソコンで作った record.json を「取り込み」から入れると表示されます。'));
+  const S = summarizeRecord(doc.races);
+  const period = doc.days.length ? `${doc.days[0].date}〜${doc.days[doc.days.length - 1].date}（${doc.days.length}日）` : '—';
+  box.append(el('p', { class: 'muted' }, `期間：${period}・記録 ${doc.races.length} レース（返還 ${S.all.n_refund}）。1点100円、組み方は凍結した決まりのまま（本命＝モデル1位、相手＝2〜4位）。`));
+  if (S.all.n_races < FEW_RACES) {
+    box.append(el('p', { class: 'warnbox fewnote', role: 'note' }, `レース数が少なく、偶然で大きく上下します（いま ${S.all.n_races} レース）。数字は参考程度に見てください。`));
+  }
+  // 区分ごとの本命の成績
+  const v26 = v26Segments();
+  const tb = el('tbody');
+  for (const [key] of REC_SEGMENTS) {
+    const g = S[key];
+    const v = v26 && key !== 'all' ? v26.seg(key) : null;
+    tb.append(el('tr', {},
+      el('th', { scope: 'row' }, g.label),
+      el('td', {}, String(g.n_races)),
+      el('td', {}, pct(g.win_rate), el('span', { class: 'ci' }, `${g.n_win}/${g.n_races}`)),
+      el('td', {}, pct(g.place_rate), el('span', { class: 'ci' }, `${g.n_place}/${g.n_races}`)),
+      v26 ? el('td', {}, v ? pct(v.honmei_place_rate) : '—', v ? el('span', { class: 'ci' }, `${v.n_races ?? '—'}レース`) : null) : null));
+  }
+  box.append(el('h4', {}, '本命の成績'), el('div', { class: 'tblwrap' }, el('table', { class: 'rec' },
+    el('thead', {}, el('tr', {}, el('th', { scope: 'col' }, '区分'), el('th', { scope: 'col' }, 'レース数'),
+      el('th', { scope: 'col' }, '1着率'), el('th', { scope: 'col' }, '3着以内率'),
+      v26 ? el('th', { scope: 'col' }, '参考：2026年検証の3着以内率') : null)), tb)));
+  box.append(el('p', { class: 'small' }, '3着以内率は、本命が複勝の対象（7頭以下は2着以内）に入った割合です。返還（本命の取消・除外）のレースは数えません。'));
+  if (v26) box.append(el('p', { class: 'small' }, `参考の列は取り込んだ成績ファイルの「${v26.period}」です（期間もレース数も違うので、そのまま比べられません）。`));
+  // 券種ごと（区分を選ぶ）
+  if (!REC_SEGMENTS.some(([k]) => k === state.recSeg)) state.recSeg = 's45';
+  box.append(el('h4', {}, '券種ごとの的中と回収率'), el('div', { class: 'chips wrap', role: 'group', 'aria-label': '区分' },
+    REC_SEGMENTS.map(([k, label]) => el('button', { type: 'button', class: 'chip' + (k === state.recSeg ? ' on' : ''), 'aria-pressed': k === state.recSeg ? 'true' : 'false',
+      onclick: () => { state.recSeg = k; state.keepScroll = true; render(); } }, label))));
+  const g = S[state.recSeg];
+  const vs = v26 && state.recSeg !== 'all' ? v26.seg(state.recSeg) : null;
+  const tb2 = el('tbody');
+  for (const b of REC_BETS) {
+    const x = g.bets[b];
+    const vr = vs && Array.isArray(vs.rows) ? vs.rows.find((q) => q && q.bet === b && q.basis === 'model') : null;
+    tb2.append(el('tr', {},
+      el('th', { scope: 'row' }, REC_BET_LABEL[b]),
+      el('td', {}, `${x.n_hit}/${x.n_races}`, el('span', { class: 'ci' }, pct(x.hit_rate))),
+      el('td', {}, pct(x.roi), el('span', { class: 'ci' }, `${yen(x.pay_yen)}／${yen(x.cost_yen)}`)),
+      vs ? el('td', {}, vr ? pct(vr.roi) : '—') : null));
+  }
+  box.append(el('p', { class: 'small' }, `${g.label}：${g.n_races} レース`),
+    el('div', { class: 'tblwrap' }, el('table', { class: 'rec' },
+      el('thead', {}, el('tr', {}, el('th', { scope: 'col' }, '券種'), el('th', { scope: 'col' }, '的中／レース'),
+        el('th', { scope: 'col' }, '回収率（払戻／購入）'), vs ? el('th', { scope: 'col' }, '参考：2026年検証の回収率') : null)), tb2)));
+  if (g.n_races > 0 && g.n_races < FEW_RACES) box.append(el('p', { class: 'small fewnote' }, `${g.label}は ${g.n_races} レースだけです。レース数が少なく、偶然で大きく上下します。`));
+  box.append(el('p', { class: 'small' }, '回収率は払戻 ÷ 購入額で、100%未満は損です。相手が取消・除外になった組は返還として購入額に入れません。的中率だけで判断しないでください。'));
+  // 日ごとの一覧 → 1 レースずつの明細
+  box.append(el('h4', {}, '日ごとの記録'));
+  const list = el('div', { class: 'recdays' });
+  for (const { day, races, sum } of byDay(doc).reverse()) {
+    const det = el('details', { class: 'recday' },
+      el('summary', {}, el('span', { class: 'rd-d' }, day.date),
+        el('span', { class: 'rd-s' }, `${races.length}R・本命1着 ${sum.n_win}・3着以内 ${sum.n_place}・単勝 ${pct(sum.bets.tan.roi, 0)}・複勝 ${pct(sum.bets.fuku.roi, 0)}`)));
+    det.append(el('p', { class: 'small' }, `予想の作成 ${day.pred_generated_at.replace('T', ' ').slice(0, 16)}（最初の発走 ${day.first_post} より前）・予想 ${day.n_pred} レース・記録 ${day.n_recorded}・返還 ${day.n_refund}・予想なし ${day.n_no_pred}・結果なし ${day.n_no_result}`));
+    const ul = el('ul', { class: 'recraces' });
+    for (const r of races) {
+      const cost = REC_BETS.reduce((a, b) => a + (r.bets[b] ? r.bets[b].cost : 0), 0);
+      const pay = REC_BETS.reduce((a, b) => a + (r.bets[b] ? r.bets[b].pay : 0), 0);
+      const inner = el('details', { class: 'recrace' + (r.status === 'refund' ? ' refund' : (inPlace(r) ? ' placed' : '')) },
+        el('summary', {},
+          el('span', { class: 'rr-v' }, `${VENUE[r.venue_code] || ''}${r.race_no}R`),
+          el('span', { class: 'stars s' + r.stars, role: 'img', 'aria-label': `星${r.stars}つ` }, el('span', { class: 'on', 'aria-hidden': 'true' }, '★'.repeat(r.stars))),
+          el('span', { class: 'rr-h' }, `本命 ${r.honmei_umaban}番 ${r.honmei_name}`),
+          el('span', { class: 'rr-f' }, finishText(r))),
+        el('p', { class: 'small' }, `${r.post_time}発走・${r.n_starters}頭・相手 ${r.partners.join('・')}番`));
+      const tb3 = el('tbody');
+      for (const b of REC_BETS) {
+        const x = r.bets[b];
+        tb3.append(el('tr', { class: x && x.pay > 0 ? 'hit' : '' }, el('th', { scope: 'row' }, REC_BET_SHORT[b]),
+          el('td', {}, x ? yen(x.cost) : '数えない'), el('td', {}, x ? yen(x.pay) : '—')));
+      }
+      tb3.append(el('tr', { class: 'total' }, el('th', { scope: 'row' }, '合計'), el('td', {}, yen(cost)), el('td', {}, yen(pay))));
+      inner.append(el('div', { class: 'tblwrap' }, el('table', { class: 'rec' },
+        el('thead', {}, el('tr', {}, el('th', { scope: 'col' }, '券種'), el('th', { scope: 'col' }, '購入額'), el('th', { scope: 'col' }, '払戻'))), tb3)));
+      ul.append(el('li', {}, inner));
+    }
+    det.append(ul);
+    list.append(det);
+  }
+  if (!doc.days.length) list.append(el('p', { class: 'muted' }, 'まだ記録がありません。'));
+  box.append(list);
+  box.append(el('p', { class: 'small' }, '前日に作った予想と、そのあと確定した結果の照らし合わせです。的中を保証するものではなく、購入を勧めるものでもありません。'));
+  return box;
+}
+
 function viewStats(root) {
   root.append(el('h2', {}, '成績'));
+  root.append(recordBlock());
+  root.append(el('h3', { class: 'sechead' }, '過去のデータでの成績（バックテスト・検証）'));
   const S = statsSource();
   if (!S) { root.append(el('p', { class: 'empty' }, '成績のデータがありません。')); return; }
   root.append(el('div', { class: 'srcbar' + (S.real ? '' : ' demo') }, '表示中：' + S.label));
@@ -538,6 +667,22 @@ function viewImport(root) {
     msg.textContent = '';
     if (f.size > 5000000) { msg.textContent = '受け付けませんでした：E_SIZE（ファイルが大きすぎます）'; return; }
     const text = await f.text();
+    if (isRecordText(text)) {
+      // 実戦の記録（pipeline の `cli record` が出す record.json）。新しいファイルで丸ごと入れ替える
+      const v = validateRecordText(text);
+      if (!v.ok) { msg.textContent = `受け付けませんでした：記録ファイルの形が正しくありません（${v.code}・場所 ${v.path}）。今の記録はそのままです。`; input.value = ''; return; }
+      if (state.record && !window.confirm('今ある実戦の記録を、このファイルで丸ごと入れ替えますか？')) { msg.textContent = '取り込みをやめました。'; input.value = ''; return; }
+      try {
+        const r = saveRecord(text);
+        if (!r.ok) { msg.textContent = `受け付けませんでした：${r.code}（場所 ${r.path}）。デモの記録は取り込めません。`; input.value = ''; return; }
+        state.record = r.record;
+        state.flash = `実戦の記録を取り込みました（${r.record.days.length}日・${r.record.races.length}レース）。「成績」で見られます。`;
+        render();
+      } catch (e) {
+        msg.textContent = '保存できませんでした：' + e.message;
+      }
+      return;
+    }
     if (isStatsText(text)) {
       // 成績 JSON（pipeline の `cli stats` が出すもの）。最新の 1 件だけを端末に保存する
       try {
@@ -571,7 +716,7 @@ function viewImport(root) {
     }
     input.value = '';
   });
-  root.append(el('label', { class: 'filebtn', for: 'file' }, 'ファイルを選ぶ（yosou_….json または stats_….json）'), input, msg);
+  root.append(el('label', { class: 'filebtn', for: 'file' }, 'ファイルを選ぶ（yosou_….json・stats_….json・record.json）'), input, msg);
   root.append(el('h3', {}, `保存済み（${state.files.length} / ${MAX_FILES}）`));
   const ul = el('ul', { class: 'files' });
   for (const f of state.files) {
@@ -606,16 +751,33 @@ function viewImport(root) {
     us.append(el('li', { class: 'muted' }, 'まだありません（成績の画面はデモの数字を表示します）。'));
   }
   root.append(us);
+  // 実戦の記録（record.json）
+  root.append(el('h3', {}, '実戦の記録（record.json）'));
+  const ur = el('ul', { class: 'files' });
+  if (state.record) {
+    const dd = state.record.days;
+    ur.append(el('li', {}, el('span', {}, `${dd.length ? `${dd[0].date}〜${dd[dd.length - 1].date}` : '—'}（${dd.length}日・${state.record.races.length}レース・作成 ${String(state.record.generated_at).slice(0, 16).replace('T', ' ')}）`),
+      el('button', { type: 'button', class: 'small-btn', onclick: () => {
+        if (!window.confirm('実戦の記録を端末から消しますか？（予想と成績ファイルは消えません）')) return;
+        clearRecord();
+        state.record = null;
+        render();
+      } }, '消す')));
+  } else {
+    ur.append(el('li', { class: 'muted' }, 'まだありません（成績の画面はデモの記録を表示します）。新しい record.json を取り込むと丸ごと入れ替わります。'));
+  }
+  root.append(ur);
   root.append(el('label', { class: 'toggle' },
     el('input', { type: 'checkbox', checked: state.useDemo || !state.files.length, disabled: !state.files.length,
       onchange: (e) => { state.useDemo = e.target.checked; render(); } }), ' デモ（架空データ）のレースを表示する（成績ファイルの表示は変わりません）'));
   root.append(el('button', { type: 'button', class: 'danger', onclick: () => {
-    if (!window.confirm('すべての予想と成績ファイルを端末から消します。元に戻せません。よろしいですか？')) return;
+    if (!window.confirm('すべての予想・成績ファイル・実戦の記録を端末から消します。元に戻せません。よろしいですか？')) return;
     clearAll();
     state.files = [];
     state.stats = null;
+    state.record = null;
     render();
-  } }, 'すべての予想と成績ファイルを端末から消す'));
+  } }, 'すべての予想と成績ファイルを端末から消す（実戦の記録も）'));
 }
 
 const DISCLAIMER = 'このアプリは分析の補助です。的中を保証するものではありません。馬券の購入は自己責任で。20歳未満は馬券を購入できません。';
@@ -628,9 +790,9 @@ function emergencyBox(main, err) {
   // 画面の途中で問題が起きても、消す手段と説明は必ず出す
   main.append(el('div', { class: 'warnbox', role: 'alert' }, 'この画面を表示できませんでした。保存データが壊れている可能性があります。（' + String(err && err.message ? err.message : err) + '）'),
     el('button', { type: 'button', class: 'danger', onclick: () => {
-      if (!window.confirm('すべての予想を端末から消します。元に戻せません。よろしいですか？')) return;
-      clearAll(); state.files = []; state.stats = null; state.useDemo = false; location.hash = '#/races'; render();
-    } }, 'すべての予想と成績ファイルを端末から消す'));
+      if (!window.confirm('すべての予想・成績ファイル・実戦の記録を端末から消します。元に戻せません。よろしいですか？')) return;
+      clearAll(); state.files = []; state.stats = null; state.record = null; state.useDemo = false; location.hash = '#/races'; render();
+    } }, 'すべての予想と成績ファイルを端末から消す（実戦の記録も）'));
 }
 
 export function render() {
@@ -659,6 +821,14 @@ export function render() {
   }
 }
 
+// デモ JSON の中の架空の記録（demo_record、kind=demo）。検査に通らなければ使わない
+export function demoRecordOf(demo) {
+  const dr = demo && demo.demo_record;
+  if (!dr) return null;
+  const t = JSON.stringify(dr);
+  return validateRecordText(t).ok && dr.kind === 'demo' ? dr : null;
+}
+
 async function loadDemo() {
   try {
     const res = await fetch('./data/demo.json', { cache: 'no-cache' });
@@ -666,6 +836,7 @@ async function loadDemo() {
     const v = validatePredictionText(text);
     if (!v.ok) { state.notice = `デモデータが検査に通りません（${v.code} ${v.path}）`; return; }
     state.demo = JSON.parse(text);
+    state.demoRecord = demoRecordOf(state.demo);
   } catch (e) {
     state.notice = 'デモデータを読み込めませんでした（通信なしで初めて開いた場合など）。';
   }
@@ -699,6 +870,9 @@ export async function start() {
   const st = loadStats();
   state.stats = st.stats;
   if (st.removed) state.notice = (state.notice ? state.notice + ' ' : '') + '保存されていた成績ファイルが壊れていたので消しました。';
+  const rc = loadRecord();
+  state.record = rc.record;
+  if (rc.removed) state.notice = (state.notice ? state.notice + ' ' : '') + '保存されていた実戦の記録が壊れていたので消しました。もう一度取り込んでください。';
   await loadDemo();
   window.addEventListener('hashchange', render);
   render();

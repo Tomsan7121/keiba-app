@@ -1,5 +1,5 @@
 // 入口。読み込みに失敗したとき（古いファイルと新しいファイルが混ざったときなど。N14）は、空の画面にせず案内を出す。
-const FILES = ['./js/app.js', './js/validate.js', './js/store.js', './js/bets.js', './css/style.css', './index.html'];
+const FILES = ['./js/app.js', './js/validate.js', './js/store.js', './js/bets.js', './js/record.js','./css/style.css', './index.html'];
 
 function showError() {
   const main = document.getElementById('main');

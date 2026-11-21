@@ -169,6 +169,101 @@ export function validateStatsText(text) {
   }
 }
 
+// --- 実戦の記録（schema keiba-record/v1）。pipeline/record.py の validate_record_text と同じ規則 ---
+export const RECORD_BET_POINTS = { tan: 1, fuku: 1, umaren: 3, umatan: 3, trio: 3, tri: 6 };
+const RE_HEX = /^[0-9a-f]{64}$/;
+const HSTATUS = ['完走', '中止', '失格', '取消', '除外'];
+const postIso = (d, t) => `${d}T${t}:00+09:00`;
+const cnt0 = (x) => int(x) && x >= 0 && x <= 100000;
+
+export function validateRecordText(text) {
+  try {
+    if (typeof text !== 'string') throw new Bad('E_PARSE', '$');
+    if (utf8Len(text) > MAX_BYTES) throw new Bad('E_SIZE', '$');
+    let o;
+    try { o = JSON.parse(text); } catch (e) { throw new Bad('E_PARSE', '$'); }
+    need(isObj(o), 'E_SCHEMA', '$');
+    need(o.schema === 'keiba-record/v1', 'E_SCHEMA', '$.schema');
+    need(o.kind === 'record' || o.kind === 'demo', 'E_FIELD', '$.kind');
+    need(typeof o.generated_at === 'string' && RE_GEN.test(o.generated_at), 'E_FIELD', '$.generated_at');
+    need(str(o.source, 60) && str(o.model_version, 40), 'E_FIELD', '$.source');
+    need(typeof o.bets_scheme_sha256 === 'string' && RE_HEX.test(o.bets_scheme_sha256), 'E_FIELD', '$.bets_scheme_sha256');
+    const days = o.days, races = o.races;
+    need(Array.isArray(days) && days.length <= 3000, 'E_FIELD', '$.days');
+    need(Array.isArray(races) && races.length <= 40000, 'E_FIELD', '$.races');
+    const first = new Map();
+    let prev = '';
+    days.forEach((d, i) => {
+      const p = `$.days[${i}]`;
+      need(isObj(d), 'E_FIELD', p);
+      need(typeof d.date === 'string' && RE_DATE.test(d.date), 'E_FIELD', p + '.date');
+      need(d.date > prev, 'E_ORDER', p + '.date');
+      prev = d.date;
+      need(typeof d.pred_generated_at === 'string' && RE_GEN.test(d.pred_generated_at), 'E_FIELD', p + '.pred_generated_at');
+      need(typeof d.first_post === 'string' && RE_TIME.test(d.first_post), 'E_FIELD', p + '.first_post');
+      need(d.pred_generated_at < postIso(d.date, d.first_post), 'E_LATE', p + '.pred_generated_at');
+      for (const k of ['n_pred', 'n_recorded', 'n_refund', 'n_no_pred', 'n_no_result']) need(cnt0(d[k]), 'E_RANGE', `${p}.${k}`);
+      need(d.pred_sha256 === '' || d.pred_sha256 === null || d.pred_sha256 === undefined || (typeof d.pred_sha256 === 'string' && RE_HEX.test(d.pred_sha256)), 'E_FIELD', p + '.pred_sha256');
+      first.set(d.date, d);
+    });
+    const count = new Map();
+    let prevk = '';
+    races.forEach((r, i) => {
+      const p = `$.races[${i}]`;
+      need(isObj(r), 'E_FIELD', p);
+      need(typeof r.race_id === 'string' && RE_RACE_ID.test(r.race_id), 'E_FIELD', p + '.race_id');
+      need(typeof r.date === 'string' && first.has(r.date), 'E_CONSIST', p + '.date');
+      need(r.race_id.slice(0, 8) === r.date.replace(/-/g, ''), 'E_CONSIST', p + '.date');
+      const k = r.date + '|' + r.race_id;
+      need(k > prevk, 'E_ORDER', p + '.race_id');
+      prevk = k;
+      need(VENUES.includes(r.venue_code) && r.race_id.slice(8, 10) === r.venue_code, 'E_CONSIST', p + '.venue_code');
+      need(int(r.race_no) && r.race_no >= 1 && r.race_no <= 12 && parseInt(r.race_id.slice(10, 12), 10) === r.race_no, 'E_CONSIST', p + '.race_no');
+      need(typeof r.post_time === 'string' && RE_TIME.test(r.post_time), 'E_FIELD', p + '.post_time');
+      need(first.get(r.date).pred_generated_at < postIso(r.date, r.post_time), 'E_LATE', p + '.post_time');
+      need(int(r.stars) && r.stars >= 1 && r.stars <= 5, 'E_RANGE', p + '.stars');
+      need(int(r.honmei_umaban) && r.honmei_umaban >= 1 && r.honmei_umaban <= 18, 'E_RANGE', p + '.honmei_umaban');
+      need(str(r.honmei_name, 20), 'E_FIELD', p + '.honmei_name');
+      const pt = r.partners;
+      need(Array.isArray(pt) && pt.length <= 3 && pt.every((x) => int(x) && x >= 1 && x <= 18)
+        && new Set(pt).size === pt.length && !pt.includes(r.honmei_umaban), 'E_FIELD', p + '.partners');
+      need(int(r.n_starters) && r.n_starters >= 1 && r.n_starters <= 18, 'E_RANGE', p + '.n_starters');
+      need(r.status === 'ok' || r.status === 'refund', 'E_FIELD', p + '.status');
+      need(HSTATUS.includes(r.honmei_status), 'E_FIELD', p + '.honmei_status');
+      const f = has(r, 'honmei_finish') ? r.honmei_finish : null;
+      need(f === null || (int(f) && f >= 1 && f <= 18), 'E_RANGE', p + '.honmei_finish');
+      const bs = r.bets;
+      need(isObj(bs) && Object.keys(bs).every((x) => BET_KEYS.includes(x)), 'E_FIELD', p + '.bets');
+      const bet = (b) => (has(bs, b) ? bs[b] : null);
+      if (r.status === 'refund') {
+        need(['取消', '除外'].includes(r.honmei_status) && f === null && BET_KEYS.every((b) => bet(b) === null), 'E_CONSIST', p + '.status');
+      } else {
+        need(!['取消', '除外'].includes(r.honmei_status), 'E_CONSIST', p + '.honmei_status');
+        need((f !== null) === (r.honmei_status === '完走'), 'E_CONSIST', p + '.honmei_finish');
+      }
+      for (const b of BET_KEYS) {
+        const x = bet(b);
+        if (x === null) continue;
+        const q = `${p}.bets.${b}`;
+        need(isObj(x) && int(x.cost) && int(x.pay), 'E_FIELD', q);
+        need(x.cost > 0 && x.cost <= 100 * RECORD_BET_POINTS[b] && x.cost % 100 === 0, 'E_RANGE', q + '.cost');
+        need(x.pay >= 0 && x.pay <= 100000000, 'E_RANGE', q + '.pay');
+      }
+      // 本命の着順と単勝・複勝の当たりが食い違わない
+      const tan = bet('tan'), fuku = bet('fuku');
+      if (tan && tan.pay > 0) need(f === 1, 'E_CONSIST', p + '.bets.tan');
+      if (fuku && fuku.pay > 0) need(f !== null && f <= places(r.n_starters), 'E_CONSIST', p + '.bets.fuku');
+      count.set(r.date, (count.get(r.date) || 0) + 1);
+    });
+    days.forEach((d, i) => need((count.get(d.date) || 0) === d.n_recorded, 'E_CONSIST', `$.days[${i}].n_recorded`));
+    need(!has(o, 'summary') || o.summary === null || isObj(o.summary), 'E_FIELD', '$.summary');
+    return { ok: true, code: null, path: null };
+  } catch (e) {
+    if (e instanceof Bad) return { ok: false, code: e.code, path: e.path };
+    return { ok: false, code: 'E_FIELD', path: '$' };
+  }
+}
+
 export function validatePredictionText(text) {
   try {
     if (typeof text !== 'string') throw new Bad('E_PARSE', '$');

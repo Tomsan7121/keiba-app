@@ -1,6 +1,6 @@
 // サービスワーカー：アプリ本体（HTML/CSS/JS・アイコン・デモデータ）だけを同じ版のキャッシュから返す。
 // 取り込んだ予想はキャッシュしない（端末の保存領域だけに置く）。VERSION は tools/update_sw_version.py で更新する。
-const VERSION = 'kyp-a3f5d28ac3c2';
+const VERSION = 'kyp-d7c2d05590ac';
 const ASSETS = [
   './',
   './index.html',
@@ -11,6 +11,7 @@ const ASSETS = [
   './js/validate.js',
   './js/store.js',
   './js/bets.js',
+  './js/record.js',
   './data/demo.json',
   './icons/icon-192.png',
   './icons/icon-512.png',

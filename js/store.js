@@ -1,5 +1,5 @@
 // 端末の中（localStorage）だけに予想を保存する。どこにも送信しない。
-import { validatePredictionText, validateStatsText } from './validate.js';
+import { validatePredictionText, validateStatsText, validateRecordText } from './validate.js';
 
 export const KEY = 'kyp.v1.files';
 export const MAX_FILES = 8;
@@ -51,7 +51,7 @@ export function saveFiles(files) {
 
 export function clearAll() {
   const s = ls();
-  if (s) { s.removeItem(KEY); s.removeItem(STATS_KEY); }
+  if (s) { s.removeItem(KEY); s.removeItem(STATS_KEY); s.removeItem(RECORD_KEY); }
 }
 
 // --- 成績 JSON（keiba-stats/v1）。最新の 1 件だけを端末の中に保存する ---
@@ -82,6 +82,42 @@ export function saveStats(text) {
   if (!s) throw new Error('この端末ではデータを保存できません（プライベートモードなど）');
   s.setItem(STATS_KEY, text);
   return { ok: true, stats: JSON.parse(text) };
+}
+
+// --- 実戦の記録（keiba-record/v1）。1 件だけを端末の中に保存し、新しいファイルで丸ごと入れ替える ---
+export const RECORD_KEY = 'kyp.v1.record';
+
+export function loadRecord() {
+  const s = ls();
+  if (!s) return { record: null, removed: 0 };
+  let raw;
+  try { raw = s.getItem(RECORD_KEY); } catch (e) { return { record: null, removed: 0 }; }
+  if (raw === null) return { record: null, removed: 0 };
+  if (!validateRecordText(raw).ok) {
+    try { s.removeItem(RECORD_KEY); } catch (e) { /* 何もしない */ }
+    return { record: null, removed: 1 };
+  }
+  return { record: JSON.parse(raw), removed: 0 };
+}
+
+export function saveRecord(text) {
+  const v = validateRecordText(text);
+  if (!v.ok) return v;
+  const o = JSON.parse(text);
+  if (o.kind !== 'record') return { ok: false, code: 'E_FIELD', path: '$.kind' };   // デモの記録は取り込まない
+  const s = ls();
+  if (!s) throw new Error('この端末ではデータを保存できません（プライベートモードなど）');
+  s.setItem(RECORD_KEY, text);
+  return { ok: true, record: o };
+}
+
+export function clearRecord() {
+  const s = ls();
+  if (s) s.removeItem(RECORD_KEY);
+}
+
+export function isRecordText(text) {
+  try { const o = JSON.parse(text); return !!o && typeof o === 'object' && o.schema === 'keiba-record/v1'; } catch (e) { return false; }
 }
 
 // 取り込むファイルが成績 JSON か（schema だけを見る。中身の検査は saveStats で行う）
